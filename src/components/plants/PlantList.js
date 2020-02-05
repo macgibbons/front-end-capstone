@@ -30,9 +30,9 @@ export default (props) => {
     
 
     return (
-        <div className="plants">
+        <div className="plants container">
             <h1>My Plants</h1>
-            <div className="plantList">
+            <div className="plantList column">
 
             {
                 plants.map(plant => {
