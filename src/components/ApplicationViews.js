@@ -4,6 +4,7 @@ import { PlantProvider } from "./plants/PlantProvider";
 import PlantList from "./plants/PlantList";
 import PlantDetails from "./plants/PlantDetails";
 import { RoomProvider } from "./rooms/RoomProvider";
+import PlantForm from "./plants/PlantForm";
 
 export default (props) => {
     return (
@@ -11,14 +12,22 @@ export default (props) => {
             <PlantProvider>
                 <RoomProvider>
                     <Route exact path="/plants" render ={
-                                    props => <PlantList {...props} />
+                            props => <PlantList {...props} />
                                 }/>
                     <Route path="/plants/:plantId(\d+)" render={
-                                    props => <PlantDetails {...props} />
+                            props => <PlantDetails {...props} />
                                 } />
+                    <Route exact path="/plants/create" render = {
+                            props => <PlantForm {...props} />
+                                  } />
+                    <Route path="/plants/edit/:plantId(\d+)" render={
+                            props => <PlantForm {...props} />
+                        } />
                 </RoomProvider>
             </PlantProvider>
         </>
     )
 }
+
+
 
