@@ -3,3 +3,22 @@
     flex-direction: column;
     max-width: max-content;
 }
+
+.header--buttons {
+    display: flex;
+    align-items: baseline;
+}
+
+.btns {
+    display: flex;
+    margin-left: 15px;
+}
+
+.icon {
+    max-height: 60%;
+    margin: 0 4px 0 4px;
+}
+
+.icon:hover {
+    cursor: pointer;
+}

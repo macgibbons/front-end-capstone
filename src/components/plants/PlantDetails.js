@@ -24,33 +24,39 @@ export default (props) => {
     return (
         <section className="plant--detailCard container">
             <div className="plant--detailHeader">
-                <h3 className="plant--detailName">{ plant.name }</h3>
+                <div className="header--buttons">
+                    <h3 className="plant--detailName">{ plant.name }</h3>
+                    <div className="btns">
+                        <div className="btn delete--btn"
+                            onClick={() => {
+                                deletePlant(chosenPlantId)
+                                    .then(() => {
+                                        props.history.push("/plants")
+                                    })
+                                }}>
+                            <img className="icon" src={require ('./trash.svg')}/>
+                        </div>
+                        <div className="btn edit--btn"
+                        onClick={() => {
+                            props.history.push(`/plants/edit/${plant.id}`)
+                        }}>
+                        <img className="icon" src={require ('./edit.svg')}/>
+                    </div>
+                    </div>
+                </div>
+
+
                     <div className="plant--detailSpecies">
                         { plant.species }
                     </div>
             </div>
-            <div className="plant--room">Room </div>
             <div className="plant--content">
                 <p className="plant--instructions">
                     { plant.name } lives in the { room.roomName } and likes to be water { plant.waterAmount } cups of water every { plant.waterDay }
                 </p>
             </div>
             
-            <div className="">
-
-                <button onClick={() => {
-                    props.history.push(`/plants/edit/${plant.id}`)
-                }}>Edit</button>
-
-                <button className="btn--delete"
-                            onClick={() => {
-                                deletePlant(chosenPlantId)
-                                    .then(() => {
-                                        props.history.push("/plants")
-                                    })
-                        }}
-                >delete</button>
-            </div>
+            
         </section>
     )
 
