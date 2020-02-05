@@ -27,7 +27,7 @@ export const PlantProvider = (props) => {
             .then(getPlants)
     }
 
-    const updatePlant = Plant => {
+    const updatePlant = plant => {
         return fetch(`http://localhost:8088/plants/${plant.id}`, {
             method: "PUT",
             headers: {
