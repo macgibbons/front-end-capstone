@@ -17,8 +17,23 @@
 .icon {
     max-height: 60%;
     margin: 0 4px 0 4px;
+    
 }
 
 .icon:hover {
     cursor: pointer;
+    animation: App-logo-spin infinite .2s linear;
+    
 }
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(-10deg);
+    }
+    to {
+      transform: rotate(10deg);
+    }
+    
+  
+  }
+  
