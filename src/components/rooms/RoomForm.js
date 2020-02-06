@@ -20,7 +20,7 @@ import React, { useContext, useState, useEffect } from "react"
 import { RoomContext } from "../rooms/RoomProvider";
 
 export default props => {
-    const { addRoom, rooms, updateRoom } = useContext(RoomContext)
+    const { addRoom, rooms, updateRoom, deleteRoom } = useContext(RoomContext)
     const [room, setRoom] = useState({})
 
     
@@ -48,6 +48,20 @@ export default props => {
         setDefaults()
     }, [rooms])
 
+    const deleteButton = (
+        <>
+            <div className="btn delete--btn"
+            onClick={() => {
+                deleteRoom(room.id)
+                    .then(() => {
+                        props.history.push("/rooms")
+                    })
+                }}>
+                <img className="icon" src={require ('../icons/trash.svg')}/>
+            </div>
+        </>
+    )
+    
     const constructNewRoom = () => {
 
             if (editMode) {
@@ -72,6 +86,7 @@ export default props => {
     return (
         <form className="room--form container">
             <h2 className="room--formTitle">{editMode ? "Update Room" : "New Room"}</h2>
+            <div className="btn delete--btn">{editMode ? deleteButton : ""} </div>
             <div className="wrapper">
                 <fieldset>
                     <div className="room-form-group">
