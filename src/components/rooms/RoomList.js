@@ -11,10 +11,12 @@ import "./Rooms.css"
 import { RoomContext } from "./RoomProvider";
 import { PlantContext } from "../plants/PlantProvider";
 import Room from "./Room";
+import { DayContext } from "../days/DayProvider";
 
 export default (props) => {
     const { rooms } = useContext(RoomContext)
     const { plants } = useContext(PlantContext)
+    const { days } = useContext(DayContext)
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
     const currentUserRooms = rooms.filter(r => r.userId == currentUser)
 
@@ -50,9 +52,8 @@ export default (props) => {
 
                     
                     const RoomPlants = plants.filter(p => p.roomId === room.id)
-                    // const clinic = locations.find(l => l.id === animal.locationId)
                     
-                    return <Room {...props} key={room.id}  room={room} RoomPlants={RoomPlants} />
+                    return <Room {...props} key={room.id}  room={room} RoomPlants={RoomPlants}  />
                 })                
             }
             
