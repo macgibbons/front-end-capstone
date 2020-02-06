@@ -21,7 +21,7 @@ export default ({room, RoomPlants, history }) => (
             </div>
         </div>
 
-        <div className= "container roomPlant--container">
+        <div className= "roomPlantList">
             {
                 RoomPlants.map(p =>
                 {

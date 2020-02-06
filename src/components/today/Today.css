@@ -1,0 +1,10 @@
+.plant--container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10% 0 10%;
+}
+
+.todayList {
+    display: flex;
+    flex-wrap: wrap;
+}

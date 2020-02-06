@@ -14,7 +14,7 @@ export default (props) => {
 
 
     return (
-        <div className="room--container container">
+        <div className="plant--container container">
             
             <div className="dayList column">
 

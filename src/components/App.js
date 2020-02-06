@@ -6,7 +6,7 @@ import Login from "./auth/Login"
 import Register from "./auth/Register"
 import "./App.css"
 // import "./normalize.css"
-import "./skeleton.css"
+// import "./skeleton.css"
 
 export default () => (
     <>

@@ -37,7 +37,7 @@ export default (props) => {
     
 
     return (
-        <div className="room--container container">
+        <div className="plant--container container">
             <div className="room--header">
                 <h1>My Rooms</h1>
                 <div className="btn add--btn"
@@ -45,7 +45,7 @@ export default (props) => {
                     <img className="icon" src={require ('./add.svg')}/>
                 </div>
             </div>
-            <div className="RoomList column">
+            <div className="roomList column">
 
             {
                 currentUserRooms.map(room => {

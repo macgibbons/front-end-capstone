@@ -25,7 +25,7 @@ export default (props) => {
     const day = days.find(day => day.id === plant.dayId) || {}
 
     return (
-        <section className="plant--detailCard container">
+        <section className="plant--detailCard plant--container">
             <div className="plant--detailHeader">
                 <div className="header--buttons">
                     <h3 className="plant--detailName">{ plant.name }</h3>
