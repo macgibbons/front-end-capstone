@@ -1,29 +1,13 @@
-/* This is the component responsible for 
-rendering the form that builds a new plant
-it needs to take the following information:
-
-Plant Name
-
-Plant Species
-
-Room - dropdown
-
-type - dropdown
-
-day - dropdown
-
-water amount - dropdown
-
-*/
-
 import React, { useContext, useState, useEffect } from "react"
 import { PlantContext } from "./PlantProvider";
 import { RoomContext } from "../rooms/RoomProvider";
+import { DayContext } from "../days/DayProvider";
 
 export default props => {
     const { rooms } = useContext(RoomContext)
     const { addPlant, plants, updatePlant } = useContext(PlantContext)
     const [plant, setPlant] = useState({})
+    const { days } = useContext(DayContext)
 
     
     const editMode = props.match.params.hasOwnProperty("plantId")
@@ -130,6 +114,7 @@ export default props => {
                                 {e.roomName}
                             </option>
                         ))}
+                       
                     </select>
                 </div>
             </fieldset>
@@ -159,13 +144,12 @@ export default props => {
                         onChange={handleControlledInputChange}>
 
                         <option value="0">Select a day</option>
-                        <option value="monday">monday</option>
-                        <option value="tuesday">tuesday</option>
-                        <option value="wednesday">wednesday</option>
-                        <option value="Thursday">thursday</option>
-                        <option value="Friday">friday</option>
-                        <option value="Saturday">saturday</option>
-                        <option value="Sunday">sunday</option>
+                        {days.map(e => (
+                            <option key={e.id} value={e.id}>
+                                {e.day}
+                            </option>
+                        ))}
+                        
                         
                         
                     </select>

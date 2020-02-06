@@ -8,10 +8,12 @@ import React, { useContext } from "react"
 import "./Plants.css"
 import { RoomContext } from "../rooms/RoomProvider";
 import { PlantContext } from "./PlantProvider";
+import { DayContext } from "../days/DayProvider";
 
 export default (props) => {
     const { plants, deletePlant } = useContext(PlantContext)
     const { rooms } = useContext(RoomContext)
+    const { days } = useContext(DayContext)
     /*
         This line of code will be explained in the next
         section of the chapter.
@@ -20,6 +22,7 @@ export default (props) => {
 
     const plant = plants.find(p => p.id === chosenPlantId) || {}
     const room = rooms.find(r => r.id === plant.roomId) || {}
+    const day = days.find(day => day.id === plant.dayId) || {}
 
     return (
         <section className="plant--detailCard container">
@@ -52,7 +55,7 @@ export default (props) => {
             </div>
             <div className="plant--content">
                 <p className="plant--instructions">
-                    { plant.name } lives in the { room.roomName } and likes to be water { plant.waterAmount } cups of water every { plant.waterDay }
+                    { plant.name } lives in the { room.roomName } and likes to be water { plant.waterAmount } cups of water every { day.day }
                 </p>
             </div>
             

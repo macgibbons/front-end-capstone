@@ -11,7 +11,7 @@ export const PlantProvider = (props) => {
     const [plants, setPlants] = useState([])
 
     const getPlants = () => {
-        return fetch("http://localhost:8088/plants?_expand=room")
+        return fetch("http://localhost:8088/plants?_expand=room&_expand=day")
             .then(res => res.json())
             .then(setPlants)
     }
