@@ -15,7 +15,8 @@ import Room from "./Room";
 export default (props) => {
     const { rooms } = useContext(RoomContext)
     const { plants } = useContext(PlantContext)
-    const currentUser = localStorage.getItem("currentUser")
+    const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
+    const currentUserRooms = rooms.filter(r => r.userId == currentUser)
 
     const logInCheck = () => {
         if(currentUser === ""){
@@ -45,7 +46,7 @@ export default (props) => {
             <div className="RoomList column">
 
             {
-                rooms.map(room => {
+                currentUserRooms.map(room => {
 
                     
                     const RoomPlants = plants.filter(p => p.roomId === room.id)

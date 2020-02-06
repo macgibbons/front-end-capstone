@@ -8,9 +8,9 @@ import "./Plants.css"
 
 export default (props) => {
     const { plants } = useContext(PlantContext)
-    // const { locations } = useContext(LocationContext)
-    // const { customers } = useContext(CustomerContext)
-    const currentUser = localStorage.getItem("currentUser")
+    const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
+    const currentUserPlants = plants.filter(p => p.userId == currentUser)
+
     console.log(currentUser);
 
     const logInCheck = () => {
@@ -36,7 +36,7 @@ export default (props) => {
             <div className="plantList column">
 
             {
-                plants.map(plant => {
+                currentUserPlants.map(plant => {
 
                     
                     // const owner = customers.find(c => c.id === animal.customerId)
