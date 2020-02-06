@@ -2,3 +2,54 @@
 
 // it needs to separate the plants into the different seven days and you should see which plants are 
 // on which days
+
+// this is the component responsible for list ALL of the plants
+import React, { useContext } from "react"
+// import { LocationContext } from "../location/LocationProvider"
+// import { CustomerContext } from "../customer/CustomerProvider"
+import "./Rooms.css"
+import { RoomContext } from "./RoomProvider";
+import { PlantContext } from "../plants/PlantProvider";
+import Room from "./Room";
+
+export default (props) => {
+    const { rooms } = useContext(RoomContext)
+    const { plants } = useContext(PlantContext)
+    const currentUser = localStorage.getItem("currentUser")
+
+    const logInCheck = () => {
+        if(currentUser === ""){
+            window.alert("please log in")
+        } else {
+            console.log("user is logged in");
+            
+            updateApplicationView()
+        
+        }
+    }
+
+    const updateApplicationView = () => {
+        props.history.push("/plants/create")
+    }
+    
+
+    return (
+        <div className="room--container container">
+            <h1>My Rooms</h1>
+            <div className="RoomList column">
+
+            {
+                rooms.map(room => {
+
+                    
+                    const RoomPlants = plants.filter(p => p.roomId === room.id)
+                    // const clinic = locations.find(l => l.id === animal.locationId)
+                    
+                    return <Room key={room.id} room={room} RoomPlants={RoomPlants} />
+                })                
+            }
+            
+            </div>
+        </div>
+    )
+}   
