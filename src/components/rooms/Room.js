@@ -12,28 +12,30 @@
 
 import React from "react"
 import { Link } from "react-router-dom"
+import "./Rooms.css"
 
-export default ({room, RoomPlants}) => (
+export default ({room, RoomPlants, history }) => (
     <section className="">
-
         <div className="room--header">
             <h3 className="plant--name">
                     { room.roomName }
             </h3>
+
+            <div className="btn edit--btn"
+                            onClick={() => {
+                                history.push(`/rooms/edit/${room.id}`)
+                            }}>
+                <img className="icon" src={require ('../icons/edit.svg')}/>
+            </div>
         </div>
+
         <div>
             {
                 RoomPlants.map(p =>
                     <div>{p.name}</div>)
             }
         </div>
-        {/* <div className="plant--content">
-            <p className="plant--instructions">
-                water { plant.name } { plant.waterAmount } cups on { plant.waterDay }
-            </p>
-        </div> */}
-        
-        
+       
     </section>
 )
 

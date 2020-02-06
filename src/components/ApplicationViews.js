@@ -25,11 +25,14 @@ export default (props) => {
                     <Route exact path="/plants/create" render = {
                             props => <PlantForm {...props} />
                                   } />
+                    <Route path="/plants/edit/:plantId(\d+)" render={
+                        props => <PlantForm {...props} />
+                    } />
                     <Route exact path="/rooms/create" render = {
                             props => <RoomForm {...props} />
-                                  } />
-                    <Route path="/plants/edit/:plantId(\d+)" render={
-                            props => <PlantForm {...props} />
+                                    } />
+                    <Route path="/rooms/edit/:roomId(\d+)" render={
+                            props => <RoomForm {...props} />
                         } />
                 </RoomProvider>
             </PlantProvider>
