@@ -35,7 +35,13 @@ export default (props) => {
 
     return (
         <div className="room--container container">
-            <h1>My Rooms</h1>
+            <div className="room--header">
+                <h1>My Rooms</h1>
+                <div className="btn add--btn"
+                    onClick={() => props.history.push("/rooms/create")}>
+                    <img className="icon" src={require ('./add.svg')}/>
+                </div>
+            </div>
             <div className="RoomList column">
 
             {
