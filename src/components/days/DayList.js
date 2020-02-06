@@ -7,7 +7,8 @@ import Day from "./Day";
 export default (props) => {
     const { days } = useContext(DayContext)
     const { plants } = useContext(PlantContext)
-    const currentUser = localStorage.getItem("currentUser")
+    const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
+    const currentUserPlants = plants.filter(p => p.userId == currentUser)
 
     
 
@@ -21,7 +22,7 @@ export default (props) => {
                 days.map(day=> {
 
                     
-                    const DayPlants = plants.filter(p => p.dayId === day.id)
+                    const DayPlants = currentUserPlants.filter(p => p.dayId === day.id)
                     // const clinic = locations.find(l => l.id === animal.locationId)
                     
                     return <Day {...props} key={day.id}  day={day} DayPlants={DayPlants} />

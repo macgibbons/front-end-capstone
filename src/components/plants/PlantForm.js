@@ -8,6 +8,8 @@ export default props => {
     const { addPlant, plants, updatePlant } = useContext(PlantContext)
     const [plant, setPlant] = useState({})
     const { days } = useContext(DayContext)
+    const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
+    const currentUserRooms = rooms.filter(r => r.userId == currentUser)
 
     
     const editMode = props.match.params.hasOwnProperty("plantId")
@@ -48,7 +50,7 @@ export default props => {
                     lighting: plant.lighting,
                     waterAmount: plant.waterAmount,
                     waterFrequency: plant.waterFrequency,
-                    waterDay: plant.waterDay,
+                    dayId: parseInt(plant.waterDay),
                     userId: parseInt(localStorage.getItem("currentUser")),
                     roomId: roomId,
                     notes: plant.notes
@@ -63,7 +65,7 @@ export default props => {
                     lighting: plant.lighting,
                     waterAmount: plant.waterAmount,
                     waterFrequency: plant.waterFrequency,
-                    waterDay: plant.waterDay,
+                    dayId: parseInt(plant.waterDay),
                     userId: parseInt(localStorage.getItem("currentUser")),
                     roomId: roomId,
                     notes: plant.notes
@@ -109,7 +111,7 @@ export default props => {
                         onChange={handleControlledInputChange}>
 
                         <option value="0">Select a room</option>
-                        {rooms.map(e => (
+                        {currentUserRooms.map(e => (
                             <option key={e.id} value={e.id}>
                                 {e.roomName}
                             </option>
@@ -127,9 +129,9 @@ export default props => {
                         onChange={handleControlledInputChange}>
 
                         <option value="0">Select a lighting</option>
-                        <option value="1">low</option>
-                        <option value="2">medium</option>
-                        <option value="3">high</option>
+                        <option value="low">low</option>
+                        <option value="medium">medium</option>
+                        <option value="high">high</option>
                         
                     
                     </select>
@@ -140,7 +142,7 @@ export default props => {
                     <label htmlFor="waterDay">what day?* </label>
                     <select name="waterDay" className="form-control"
                         proptype="varchar"
-                        value={plant.waterDay}
+                        value={plant.dayId}
                         onChange={handleControlledInputChange}>
 
                         <option value="0">Select a day</option>
@@ -159,7 +161,7 @@ export default props => {
                 <div className="form-group">
                     <label htmlFor="waterAmount">how much water? </label>
                     <input type="text" name="waterAmount" className="form-control"
-                        proptype="int"
+                        proptype="varchar"
                         value={plant.waterAmount}
                         onChange={handleControlledInputChange}/>
                         cups
@@ -174,9 +176,9 @@ export default props => {
                         onChange={handleControlledInputChange}>
 
                         <option value="0">how often?</option>
-                        <option value="1">once a week</option>
-                        <option value="2">once every other week</option>
-                        <option value="3">once a month</option>
+                        <option value="once a week">once a week</option>
+                        <option value="once every other week">once every other week</option>
+                        <option value="once a month">once a month</option>
                     
                         
                         
