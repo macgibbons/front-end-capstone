@@ -20,32 +20,40 @@ export default (props) => {
                     <DayProvider>
                         <UserProvider>
 
+                        {/****        TODAY        ****/}
+
+                        <Route exact path="/" render ={
+                            props => <TodayList {...props} />
+                        }/>
+
+                        {/****        PLANTS       ****/}
                         <Route exact path="/plants" render ={
-                                props => <PlantList {...props} />
-                                    }/>
-                        <Route exact path="/rooms" render ={
-                                props => <RoomList {...props} />
-                                    }/>
+                            props => <PlantList {...props} />
+                        }/>
                         <Route path="/plants/:plantId(\d+)" render={
-                                props => <PlantDetails {...props} />
-                                    } />
+                            props => <PlantDetails {...props} />
+                        } />
                         <Route exact path="/plants/create" render = {
-                                props => <PlantForm {...props} />
-                                    } />
+                            props => <PlantForm {...props} />
+                        } />
                         <Route path="/plants/edit/:plantId(\d+)" render={
                             props => <PlantForm {...props} />
                         } />
+
+                        {/****        ROOMS       ****/}
+                        <Route exact path="/rooms" render ={
+                            props => <RoomList {...props} />
+                        }/>
                         <Route exact path="/rooms/create" render = {
-                                props => <RoomForm {...props} />
-                                        } />
+                            props => <RoomForm {...props} />
+                        } />
                         <Route path="/rooms/edit/:roomId(\d+)" render={
-                                props => <RoomForm {...props} />
-                            } />
+                            props => <RoomForm {...props} />
+                        } />
+                        
+                        {/****        DAYS       ****/}
                          <Route exact path="/days" render ={
                                 props => <DayList {...props} />
-                                    }/>
-                                    <Route exact path="/" render ={
-                                props => <TodayList{...props} />
                                     }/>
                         </UserProvider>
                     </DayProvider>
