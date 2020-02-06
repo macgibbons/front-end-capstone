@@ -51,7 +51,7 @@ export default (props) => {
                     const RoomPlants = plants.filter(p => p.roomId === room.id)
                     // const clinic = locations.find(l => l.id === animal.locationId)
                     
-                    return <Room key={room.id} room={room} RoomPlants={RoomPlants} />
+                    return <Room {...props} key={room.id}  room={room} RoomPlants={RoomPlants} />
                 })                
             }
             
