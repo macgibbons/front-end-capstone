@@ -2,9 +2,13 @@
     display: flex;
     flex-direction: column;
     max-width: max-content;
+    
 }
 
-
+.plantList{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .header--buttons {
     display: flex;

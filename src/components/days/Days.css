@@ -1,0 +1,9 @@
+.dayList {
+    display: flex;
+    flex-direction: column;
+}
+
+.dayPlantList {
+    display: flex;
+    flex-wrap: wrap;
+}

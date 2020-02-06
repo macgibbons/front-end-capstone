@@ -50,55 +50,57 @@ const Register = props => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Welcome! Please create an account</h1>
-                <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input ref={firstName} type="text"
-                        name="firstName"
-                        className="form-control"
-                        placeholder="First name"
-                        required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input ref={lastName} type="text"
-                        name="lastName"
-                        className="form-control"
-                        placeholder="Last name"
-                        required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputEmail"> Email address </label>
-                    <input ref={email} type="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="Email address"
-                        required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputPassword"> Password </label>
-                    <input ref={password} type="password"
-                        name="password"
-                        className="form-control"
-                        placeholder="Password"
-                        required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="verifyPassword"> Verify Password </label>
-                    <input ref={verifyPassword} type="password"
-                        name="verifyPassword"
-                        className="form-control"
-                        placeholder="Verify password"
-                        required />
-                </fieldset>
-                <fieldset>
-                    <button type="submit">
-                        Sign in
-                    </button>
-                </fieldset>
-            </form>
+        <main className="container--login">
+            <section className="login">
+                <form className="form--login" onSubmit={handleRegister}>
+                    <h1 className="h3 mb-3 font-weight-normal">Welcome! Please create an account</h1>
+                    <fieldset className="loginfieldset">
+                        <label htmlFor="firstName"> First Name </label>
+                        <input ref={firstName} type="text"
+                            name="firstName"
+                            className="registerInput"
+                            placeholder="First name"
+                            required autoFocus />
+                    </fieldset>
+                    <fieldset className="loginfieldset">
+                        <label htmlFor="lastName"> Last Name </label>
+                        <input ref={lastName} type="text"
+                            name="lastName"
+                            className="registerInput"
+                            placeholder="Last name"
+                            required />
+                    </fieldset>
+                    <fieldset className="loginfieldset">
+                        <label htmlFor="inputEmail"> Email address </label>
+                        <input ref={email} type="email"
+                            name="email"
+                            className="registerInput"
+                            placeholder="Email address"
+                            required />
+                    </fieldset>
+                    <fieldset className="loginfieldset">
+                        <label htmlFor="inputPassword"> Password </label>
+                        <input ref={password} type="password"
+                            name="password"
+                            className="registerInput"
+                            placeholder="Password"
+                            required />
+                    </fieldset>
+                    <fieldset className="loginfieldset">
+                        <label htmlFor="verifyPassword"> Verify Password </label>
+                        <input ref={verifyPassword} type="password"
+                            name="verifyPassword"
+                            className="registerInput"
+                            placeholder="Verify password"
+                            required />
+                    </fieldset>
+                    <fieldset className="loginfieldset">
+                        <button type="submit">
+                            Sign in
+                        </button>
+                    </fieldset>
+                </form>
+            </section>
         </main>
     )
 }

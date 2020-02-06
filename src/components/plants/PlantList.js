@@ -30,7 +30,7 @@ export default (props) => {
     
 
     return (
-        <div className="plants container">
+        <div className="plant--container">
             <h1>My Plants</h1>
           
             <div className="plantList column">

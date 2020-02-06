@@ -54,35 +54,34 @@ const Login = props => {
 
     return (
         <main className="container--login">
-            <section>
+            <section className="login">
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>TITLE</h1>
                     <h2>log in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                    <fieldset className="loginfieldset">
+                        <label className="loginLabel" htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email"
                             id="email"
-                            className="form-control"
+                            className="loginInput"
                             placeholder="Email address"
                             required autoFocus />
                     </fieldset>
-                    <fieldset>
-                        <label htmlFor="inputPassword"> Password </label>
-                        <input ref={password} type="password"
+                    <fieldset className="loginfieldset">
+                        <label className="loginLabel" htmlFor="inputPassword"> Password </label>
+                        <input className="loginInput" ref={password} type="password"
                             id="password"
-                            className="form-control"
                             placeholder="Password"
                             required />
                     </fieldset>
-                    <fieldset>
+                    <fieldset className="loginfieldset">
                         <button type="submit">
                             log in
                     </button>
                     </fieldset>
                 </form>
-            </section>
             <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
+            </section>
             </section>
         </main>
     )

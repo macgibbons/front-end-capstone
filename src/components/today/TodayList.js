@@ -4,6 +4,7 @@ import Plant from "../plants/Plant"
 import { DayContext } from "../days/DayProvider";
 import { PlantContext } from "../plants/PlantProvider";
 import { UserContext } from "../users/UserProvider";
+import  "./Today.css"
 
 export default (props) => {
     const { users } = useContext(UserContext)
@@ -15,6 +16,8 @@ export default (props) => {
 
     // function to find the long form of todays date
     const Today = new Date()
+    console.log(Today);
+    
 
     // grabbing the number of the day of the week sunday = 0, monday = 1, etc. 
     const dayOfWeek = Today.getDay()
@@ -47,7 +50,7 @@ export default (props) => {
     
 
     return (
-        <div className="today container">
+        <div className="plant--container">
             <h1>{nameOfToday}</h1>
             <h1>Welcome back {currentUserName.name}!</h1>
             <h3>You have {currentUserPlants.length} plants to water today.</h3>

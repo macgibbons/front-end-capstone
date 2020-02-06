@@ -11,7 +11,7 @@ export default ({day, DayPlants, history }) => (
             </h3>
         </div>
 
-        <div>
+        <div className="dayPlantList">
             {
                 DayPlants.map(p =>
                     {
