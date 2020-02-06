@@ -1,20 +1,12 @@
-// this the component responsible for the individual cards that will be shown on the 
-// ROOM tab
-// This will build the component that is rendered on the dom for every plant
-//  it needs to show plant.name
-// plant.scientific_name
-// water amount
 
 
-// ***stretch**
-// a button to mark as completed
-// an image
-
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import "./Rooms.css"
+import { DayContext } from "../days/DayProvider";
 
 export default ({room, RoomPlants, history }) => (
+    
     <section className="">
         <div className="room--header">
             <h3 className="plant--name">
@@ -29,10 +21,27 @@ export default ({room, RoomPlants, history }) => (
             </div>
         </div>
 
-        <div>
+        <div className= "container roomPlant--container">
             {
                 RoomPlants.map(p =>
-                    <div>{p.name}</div>)
+                {
+                    const { days } = useContext(DayContext)
+                    const day = days.find(d => d.id === p.dayId)
+
+                    return (
+                        
+                    <>
+                    <div className="card">
+                        <div>{p.name}</div>
+                        <p> {p.species}</p>
+                        <div>
+                            <p>{p.waterAmount} cups every {day.day} </p>
+                        </div>
+                    </div>
+                    </>
+                )
+                }
+                    )
             }
         </div>
        

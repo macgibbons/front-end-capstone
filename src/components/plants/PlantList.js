@@ -1,13 +1,13 @@
 // this is the component responsible for list ALL of the plants
 import React, { useContext } from "react"
 import { PlantContext } from "./PlantProvider";
-// import { LocationContext } from "../location/LocationProvider"
-// import { CustomerContext } from "../customer/CustomerProvider"
 import Plant from "./Plant"
 import "./Plants.css"
+import { DayContext } from "../days/DayProvider";
 
 export default (props) => {
     const { plants } = useContext(PlantContext)
+    const { days } = useContext(DayContext)
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
     const currentUserPlants = plants.filter(p => p.userId == currentUser)
 
@@ -40,9 +40,9 @@ export default (props) => {
 
                     
                     // const owner = customers.find(c => c.id === animal.customerId)
-                    // const clinic = locations.find(l => l.id === animal.locationId)
+                    const day = days.find(d => d.id === plant.dayId)
 
-                    return <Plant key={plant.id} plant={plant} />
+                    return <Plant key={plant.id} plant={plant} day={day} />
                 })                
             }
             
