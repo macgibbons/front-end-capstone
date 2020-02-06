@@ -9,6 +9,8 @@ import RoomList from "./rooms/RoomList";
 import RoomForm from "./rooms/RoomForm";
 import { DayProvider } from "./days/DayProvider";
 import DayList from "./days/DayList";
+import TodayList from "./today/TodayList";
+import { UserProvider } from "./users/UserProvider";
 
 export default (props) => {
     return (
@@ -16,6 +18,8 @@ export default (props) => {
             <PlantProvider>
                 <RoomProvider>
                     <DayProvider>
+                        <UserProvider>
+
                         <Route exact path="/plants" render ={
                                 props => <PlantList {...props} />
                                     }/>
@@ -40,6 +44,10 @@ export default (props) => {
                          <Route exact path="/days" render ={
                                 props => <DayList {...props} />
                                     }/>
+                                    <Route exact path="/" render ={
+                                props => <TodayList{...props} />
+                                    }/>
+                        </UserProvider>
                     </DayProvider>
                 </RoomProvider>
             </PlantProvider>
