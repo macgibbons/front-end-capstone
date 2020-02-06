@@ -50,7 +50,7 @@ export default (props) => {
         <div className="today container">
             <h1>{nameOfToday}</h1>
             <h1>Welcome back {currentUserName.name}!</h1>
-            <h3>You have {currentUserPlants.length} plants to water today.</h3>
+            <h3>You have {todaysPlants.length} plants to water today.</h3>
           
             <div className="todayList column">
 
