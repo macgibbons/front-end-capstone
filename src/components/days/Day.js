@@ -1,6 +1,7 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useContext } from "react"
+// import { Link } from "react-router-dom"
 import "./Days.css"
+import { DayContext } from "./DayProvider";
 
 export default ({day, DayPlants, history }) => (
     <section className="">
@@ -13,9 +14,29 @@ export default ({day, DayPlants, history }) => (
         <div>
             {
                 DayPlants.map(p =>
-                    <div>{p.name}</div>)
-            }
+                    {
+                        const { days } = useContext(DayContext)
+                        const day = days.find(d => d.id === p.dayId)
+                
+                        return (
+                            
+                        <>
+                        <div className="card">
+                            <div>{p.name}</div>
+                            <p> {p.species}</p>
+                            <div>
+                                <p>{p.waterAmount} cups every {day.day} </p>
+                            </div>
+                        </div>
+                        </>
+                    )
+
+                    }
+                )}
         </div>
+
+        
+        
        
     </section>
 )
