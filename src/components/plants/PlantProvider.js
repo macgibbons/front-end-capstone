@@ -44,6 +44,16 @@ export const PlantProvider = (props) => {
         })
             .then(getPlants)
     }
+
+    const patchPlant = plant => {
+        return fetch(`http://localhost:8088/plants/${plant.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(plant)
+        }).then(getPlants);
+      };
     /*
         Load all Plants when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
@@ -58,7 +68,7 @@ export const PlantProvider = (props) => {
 
     return (
         <PlantContext.Provider value={{
-            plants, addPlant, deletePlant, updatePlant
+            plants, addPlant, deletePlant, updatePlant, patchPlant
         }}>
             {props.children}
         </PlantContext.Provider>

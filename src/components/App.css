@@ -1,6 +1,6 @@
 .card {
     padding: 10px;
-    border: 1px solid #00FF00;
+    border: 1px solid black;
     flex-basis: 20%;
     /* max-width: max-content; */
     margin: 10px;
@@ -8,6 +8,6 @@
 
 body {
     font-family: 'Roboto Mono', monospace;
-    color: #00FF00;
-    background-color: black;
+    /* color: #00FF00;
+    background-color: black; */
 }

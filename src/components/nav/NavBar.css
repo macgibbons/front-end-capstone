@@ -2,9 +2,9 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    border-bottom: 1px solid #00ff00;
-    /* margin-right: -10px;
-    margin-left: -10px; */
+    border-bottom: 1px solid black;
+    margin-right: -10px;
+    margin-left: -10px;
     padding-bottom: 20px;  
 
     
@@ -19,7 +19,7 @@
 
 .navbar__link {
     text-decoration: none;
-    color: #00ff00;
+    color: black
 }
 
 .navbar__link:hover {

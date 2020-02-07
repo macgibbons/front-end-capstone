@@ -8,3 +8,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.checkbox {
+    display: flex;
+}
+.completed {
+    text-decoration: line-through;
+}

@@ -1,10 +1,11 @@
 // this is the component responsible for list ALL of the plants
 import React, { useContext } from "react"
-import Plant from "../plants/Plant"
+// import Plant from "../plants/Plant"
 import { DayContext } from "../days/DayProvider";
 import { PlantContext } from "../plants/PlantProvider";
 import { UserContext } from "../users/UserProvider";
 import  "./Today.css"
+import TodayComponent from "./TodayComponent";
 
 export default (props) => {
     const { users } = useContext(UserContext)
@@ -54,6 +55,10 @@ export default (props) => {
             <h1>{nameOfToday}</h1>
             <h1>Welcome back {currentUserName.name}!</h1>
             <h3>You have {todaysPlants.length} plants to water today.</h3>
+            <div className="checkbox">
+                <input type="checkbox" name="species" required className="form-control" onClick= {() => {}} />
+                <label htmlFor="checkbox">mark as all as watered </label>
+            </div>
           
             <div className="todayList column">
 
@@ -62,7 +67,7 @@ export default (props) => {
 
                     const day = days.find(d => d.id === plant.dayId)
 
-                    return <Plant key={plant.id} plant={plant} day={day} />
+                    return <TodayComponent key={plant.id} plant={plant} day={day} />
                 })                
             }
             
