@@ -9,11 +9,12 @@ import TodayComponent from "./TodayComponent";
 
 export default (props) => {
     const { users } = useContext(UserContext)
-    const { plants } = useContext(PlantContext)
+    const { plants, patchPlant } = useContext(PlantContext)
     const { days } = useContext(DayContext)
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
     const currentUserName = users.find(u => u.id === currentUser) || {}
     const currentUserPlants = plants.filter(p => p.userId == currentUser)
+
 
     // function to find the long form of todays date
     const Today = new Date()
@@ -48,7 +49,22 @@ export default (props) => {
     const updateApplicationView = () => {
         props.history.push("/plants/create")
     }
-    
+    const markAllAsWatered = () => {
+        todaysPlants.map(
+            plant =>
+            
+         {
+            if(plant.isCompleted === false){
+                console.log(`${plant.name} was watered`);
+                
+                const updatePlantAsCompleted = {
+                  id: plant.id,
+                  isCompleted: true
+                };
+                patchPlant(updatePlantAsCompleted)}
+            }
+        )
+    }
 
     return (
         <div className="plant--container">
@@ -56,7 +72,9 @@ export default (props) => {
             <h1>Welcome back {currentUserName.name}!</h1>
             <h3>You have {todaysPlants.length} plants to water today.</h3>
             <div className="checkbox">
-                <input type="checkbox" name="species" required className="form-control" onClick= {() => {}} />
+                <input type="checkbox" name="species"  className="form-control" onClick={()=>{markAllAsWatered()}}
+                     />
+
                 <label htmlFor="checkbox">mark as all as watered </label>
             </div>
           
