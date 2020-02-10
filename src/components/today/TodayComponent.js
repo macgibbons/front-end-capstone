@@ -26,6 +26,7 @@ return (
                 </div>
             </h3>
         </div>
+        <img className="plant--img" src={ (plant.img)}/>
         <div className="plant--content">
             <p className="plant--instructions">
                 water { plant.name } { plant.waterAmount } cups on { day.day }

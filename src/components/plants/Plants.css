@@ -26,20 +26,34 @@
     
 }
 
+.plant--img {
+    width: 100%;
+}
+
+.plant--img--detail {
+    width: 40%;
+}
+
 .icon:hover {
     cursor: pointer;
-    animation: App-logo-spin infinite .2s linear;
+    animation: rotate forwards .5s ;
+    transition-delay: .2s
     
 }
 
-@keyframes App-logo-spin {
-    from {
-      transform: rotate(-10deg);
+@keyframes rotate{
+    0% {
+      transform: rotateZ(25deg);
     }
-    to {
-      transform: rotate(10deg);
+    25% {
+      transform: rotateZ(-25deg);
+     
     }
-    
-  
+    50% {transform: rotateZ(25deg);
+      }
+
+    100% {transform: rotateZ(0deg);
+    }
   }
+  
   
