@@ -8,7 +8,7 @@ export default (props) => {
     const { days } = useContext(DayContext)
     const { plants } = useContext(PlantContext)
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
-    const currentUserPlants = plants.filter(p => p.userId == currentUser)
+    const currentUserPlants = plants.filter(p => p.userId === currentUser)
 
     
 
