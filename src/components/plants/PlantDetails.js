@@ -54,6 +54,7 @@ export default (props) => {
                     </div>
             </div>
             <div className="plant--content">
+            <img className="plant--img--detail" src={ (plant.img)}/>
                 <p className="plant--instructions">
                     { plant.name } lives in the { room.roomName } and likes to be water { plant.waterAmount } cups of water every { day.day }
                 </p>

@@ -24,6 +24,7 @@ export default ({day, DayPlants, history }) => (
                         <div className="card">
                             <div>{p.name}</div>
                             <p> {p.species}</p>
+                            <img className="plant--img" src={ (p.img)}/>
                             <div>
                                 <p>{p.waterAmount} cups every {day.day} </p>
                             </div>

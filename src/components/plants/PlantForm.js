@@ -9,6 +9,8 @@ export default props => {
     const [plant, setPlant] = useState({})
     const { days } = useContext(DayContext)
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
+    const [image, setImage] = useState('')
+    const [loading, setLoading] = useState(false)
     const currentUserRooms = rooms.filter(r => r.userId == currentUser)
 
     
@@ -53,7 +55,9 @@ export default props => {
                     dayId: parseInt(plant.waterDay),
                     userId: parseInt(localStorage.getItem("currentUser")),
                     roomId: roomId,
-                    notes: plant.notes
+                    notes: plant.notes,
+                    isCompleted: false,
+                    img: image
           
                 })
                     .then(() => props.history.push("/plants"))
@@ -68,12 +72,39 @@ export default props => {
                     dayId: parseInt(plant.waterDay),
                     userId: parseInt(localStorage.getItem("currentUser")),
                     roomId: roomId,
-                    notes: plant.notes
+                    notes: plant.notes,
+                    isCompleted: false,
+                    img: image
                 })
                     .then(() => props.history.push("/plants"))
             }
         }
     }
+
+
+ 
+
+  const uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'plants')
+    setLoading(true)
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/dizvtfdgm/image/upload',
+      {
+        method: 'POST',
+        body: data
+      }
+    )
+    const file = await res.json()
+
+    setImage(file.secure_url)
+    setLoading(false)
+  }
+
+  
+
 
     return (
         <form className="plant--form container">
@@ -142,7 +173,7 @@ export default props => {
                     <label htmlFor="waterDay">what day?* </label>
                     <select name="waterDay" className="form-control"
                         proptype="int"
-                        defaultvalue={plant.DayId}
+                        defaultValue={plant.DayId}
                         onChange={handleControlledInputChange}>
 
                         <option value="0">Select a day</option>
@@ -195,6 +226,19 @@ export default props => {
                     </textarea>
                 </div>
             </fieldset>
+            <div className="image--upload">
+                <input
+                    type="file"
+                    name="file"
+                    placeholder="Upload an image"
+                    onChange={uploadImage}
+                />
+                {loading ? (
+                    <h3>Loading...</h3>
+                ) : (
+                    <img src={image} style={{ width: '300px' }} />
+                )}
+            </div>
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
