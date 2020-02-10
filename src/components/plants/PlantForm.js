@@ -141,8 +141,8 @@ export default props => {
                 <div className="form-group">
                     <label htmlFor="waterDay">what day?* </label>
                     <select name="waterDay" className="form-control"
-                        proptype="varchar"
-                        value={plant.dayId}
+                        proptype="int"
+                        defaultvalue={plant.DayId}
                         onChange={handleControlledInputChange}>
 
                         <option value="0">Select a day</option>
