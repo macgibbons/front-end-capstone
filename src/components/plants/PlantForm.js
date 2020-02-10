@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react"
 import { PlantContext } from "./PlantProvider";
 import { RoomContext } from "../rooms/RoomProvider";
 import { DayContext } from "../days/DayProvider";
+import { number } from "prop-types";
 
 export default props => {
     const { rooms } = useContext(RoomContext)
@@ -40,10 +41,13 @@ export default props => {
 
     const constructNewPlant = () => {
         const roomId = parseInt(plant.roomId)
-
-        if (roomId === 0) {
+        if ( plant.roomId === undefined  ) {
             window.alert("Please select a room")
-        } else {
+        }  else if  ( plant.waterDay === undefined){
+                window.alert("Please select a day")
+            } else if (parseInt(plant.waterAmount) === NaN ) {
+                    window.alert("water amount must be a number")
+                } else {
             if (editMode) {
                 updatePlant({
                     id: plant.id,
@@ -62,21 +66,27 @@ export default props => {
                 })
                     .then(() => props.history.push("/plants"))
             } else {
-                addPlant({
-                    id: plant.id,
-                    name: plant.name,
-                    species: plant.species,
-                    lighting: plant.lighting,
-                    waterAmount: plant.waterAmount,
-                    waterFrequency: plant.waterFrequency,
-                    dayId: parseInt(plant.waterDay),
-                    userId: parseInt(localStorage.getItem("currentUser")),
-                    roomId: roomId,
-                    notes: plant.notes,
-                    isCompleted: false,
-                    img: image
-                })
-                    .then(() => props.history.push("/plants"))
+                if (parseInt(plant.roomId) === NaN) {
+                   window.alert("please select a room")
+                   
+                } else {
+
+                    addPlant({
+                        id: plant.id,
+                        name: plant.name,
+                        species: plant.species,
+                        lighting: plant.lighting,
+                        waterAmount: plant.waterAmount,
+                        waterFrequency: plant.waterFrequency,
+                        dayId: parseInt(plant.waterDay),
+                        userId: parseInt(localStorage.getItem("currentUser")),
+                        roomId: roomId,
+                        notes: plant.notes,
+                        isCompleted: false,
+                        img: image
+                    })
+                        .then(() => props.history.push("/plants"))
+                }
             }
         }
     }
