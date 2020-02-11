@@ -49,6 +49,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
   display: inline-block;
+  font-family: 'Roboto Mono', monospace;
   height: 38px;
   padding: 0 30px;
   color: #555;
