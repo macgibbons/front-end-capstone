@@ -43,11 +43,13 @@ export default props => {
         const roomId = parseInt(plant.roomId)
         if ( plant.roomId === undefined  ) {
             window.alert("Please select a room")
-        }  else if  ( plant.waterDay === undefined){
-                window.alert("Please select a day")
-            } else if (parseInt(plant.waterAmount) === NaN ) {
-                    window.alert("water amount must be a number")
-                } else {
+        } else if  ( plant.waterDay === undefined){
+            window.alert("Please select a day")
+        } else if (plant.name === undefined ) {
+            window.alert("Please give your plant a name")
+        } else if (plant.waterAmount === undefined ) {
+            window.alert("Please specifiy a water amount")
+        } else {
             if (editMode) {
                 updatePlant({
                     id: plant.id,
