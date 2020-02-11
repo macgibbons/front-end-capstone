@@ -14,4 +14,10 @@
 }
 .completed {
     text-decoration: line-through;
+    background-color: rgb(228, 228, 228);
+    font-style: italic;
+}
+
+.completed-img {
+    opacity: 70%;
 }

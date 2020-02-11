@@ -15,7 +15,7 @@ import { PlantContext } from "../plants/PlantProvider";
 export default ({plant, day}) => {
 const { patchPlant } = useContext(PlantContext);
 return (
-    <section className="plant--card card">
+    <section className="plant--card card" className={plant.isCompleted ? "plant--card card completed" : "plant--card card"}>
         <div className="plant--header" className={plant.isCompleted ? "completed" : "notCompleted"}>
             <h3 className="plant--name">
                 <Link to={`/plants/${plant.id}`}>
@@ -26,7 +26,7 @@ return (
                 </div>
             </h3>
         </div>
-        <img className="plant--img" src={ (plant.img)}/>
+        <img className={plant.isCompleted ? "completed-img plant--img" : "plant--img"} src={ (plant.img)}/>
         <div className="plant--content">
             <p className="plant--instructions">
                 water { plant.name } { plant.waterAmount } cups on { day.day }
