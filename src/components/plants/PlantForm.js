@@ -63,7 +63,7 @@ export default props => {
                     roomId: roomId,
                     notes: plant.notes,
                     isCompleted: false,
-                    img: image
+                    img: plant.img
           
                 })
                     .then(() => props.history.push("/plants"))
@@ -89,7 +89,7 @@ export default props => {
                     })
                         .then(() => props.history.push("/plants"))
                 }
-            }
+           }
         }
     }
 
@@ -238,13 +238,23 @@ export default props => {
                     </textarea>
                 </div>
             </fieldset>
-            <div className="image--upload">
+            <div className="image--upload" >
+                
+                {editMode ? 
+                
+                <img src={plant.img} style={{ width: '300px' }} /> 
+                
+                :
+
                 <input
+                    
                     type="file"
                     name="file"
                     placeholder="Upload an image"
                     onChange={uploadImage}
                 />
+                
+                }
                 {loading ? (
                     <h3>Loading...</h3>
                 ) : (
