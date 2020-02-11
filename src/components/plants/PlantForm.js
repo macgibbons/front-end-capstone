@@ -122,10 +122,12 @@ export default props => {
         <form className="plant--form container">
             <h2 className="plant--formTitle">{editMode ? "Update Plant" : "New Plant"}</h2>
             <div className="wrapper">
+            <div className="plant-form-pair">
+
                 <fieldset>
                     <div className="plant-form-group">
                         <label htmlFor="name">Plant Name* </label>
-                        <input type="text" name="name" required autoFocus className="form-control"
+                        <input type="text" name="name" required autoFocus className="form-control-type1"
                             proptype="varchar"
                             placeholder="plant name.."
                             defaultValue={plant.name}
@@ -136,7 +138,7 @@ export default props => {
                 <fieldset>
                     <div className="plant-form-group">
                         <label htmlFor="species">Plant Species* </label>
-                        <input type="text" name="species" required className="form-control"
+                        <input type="text" name="species" required className="form-control-type1"
                             proptype="varchar"
                             placeholder="species..."
                             defaultValue={plant.species}
@@ -145,10 +147,13 @@ export default props => {
                     </div>
                 </fieldset>
             </div>
+            </div>
+            <div className="plant-form-pair">
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="roomId">room: </label>
-                    <select name="roomId" className="form-control"
+                    <select name="roomId" className="form-control-type1"
                         proptype="int"
                         value={plant.roomId}
                         onChange={handleControlledInputChange}>
@@ -166,7 +171,7 @@ export default props => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="lighting">lighting* </label>
-                    <select name="lighting" className="form-control"
+                    <select name="lighting" className="form-control-type1"
                         proptype="int"
                         value={plant.lighting}
                         onChange={handleControlledInputChange}>
@@ -180,10 +185,13 @@ export default props => {
                     </select>
                 </div>
             </fieldset>
+            </div>
+            <div className="plant-form-pair">
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="waterDay">what day?* </label>
-                    <select name="waterDay" className="form-control"
+                    <select name="waterDay" className="form-control-type1"
                         proptype="int"
                         defaultValue={plant.DayId}
                         onChange={handleControlledInputChange}>
@@ -202,18 +210,8 @@ export default props => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="waterAmount">how much water? </label>
-                    <input type="text" name="waterAmount" className="form-control"
-                        proptype="varchar"
-                        value={plant.waterAmount}
-                        onChange={handleControlledInputChange}/>
-                        cups
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
                     <label htmlFor="waterFrequency">Frequency* </label>
-                    <select name="waterFrequency" className="form-control"
+                    <select name="waterFrequency" className="form-control-type1"
                         proptype="varchar"
                         value={plant.waterFrequency}
                         onChange={handleControlledInputChange}>
@@ -228,39 +226,53 @@ export default props => {
                     </select>
                 </div>
             </fieldset>
+            </div>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="waterAmount">how much water? </label>
+                    <input type="text" name="waterAmount" className="form-control-type1"
+                        proptype="varchar"
+                        value={plant.waterAmount}
+                        onChange={handleControlledInputChange}/>
+                        cups
+                </div>
+            </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="notes">Notes: </label>
-                    <textarea type="text" name="notes" className="form-control"
+                    <textarea type="text" name="notes" className="form-control-type1"
                         proptype="varchar"
                         value={plant.notes}
                         onChange={handleControlledInputChange}>
                     </textarea>
                 </div>
             </fieldset>
-            <div className="image--upload" >
-                
-                {editMode ? 
-                
-                <img src={plant.img} style={{ width: '300px' }} /> 
-                
-                :
+            
 
-                <input
+                <div className="image--upload" >
                     
-                    type="file"
-                    name="file"
-                    placeholder="Upload an image"
-                    onChange={uploadImage}
-                />
-                
-                }
-                {loading ? (
-                    <h3>Loading...</h3>
-                ) : (
-                    <img src={image} style={{ width: '300px' }} />
-                )}
-            </div>
+                    {editMode ? 
+                    
+                    <img src={plant.img} style={{ width: '300px' }} /> 
+                    
+                    :
+
+                    <input
+                        className="form-control-type2"
+                        type="file"
+                        name="file"
+                        placeholder="Upload an image"
+                        onChange={uploadImage}
+                    />
+                    
+                    }
+                    {loading ? (
+                        <h3>Loading...</h3>
+                    ) : (
+                        <img src={image} style={{ width: '300px' }} />
+                    )}
+                </div>
+            
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()

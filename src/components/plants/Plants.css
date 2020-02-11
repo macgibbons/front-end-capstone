@@ -34,6 +34,12 @@
     width: 40%;
 }
 
+.image--upload {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+}
+
 .icon:hover {
     cursor: pointer;
     animation: rotate forwards .5s ;
@@ -41,6 +47,33 @@
     
 }
 
+.plant--form {
+    border-radius: 16px;
+    border: 1px solid #bbb;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10% 1% 10%;
+    margin: 0 10%;
+}
+
+.plant-form-pair {
+    display: flex;
+    justify-content: space-evenly;
+  
+}
+
+.form-control-type2 {
+    margin-bottom: 2%;
+}
+
+fieldset {
+    width: 100%
+}
+
+.form-control-type1 {
+    width: 100%;
+    margin-bottom: 2%;
+}
 @keyframes rotate{
     0% {
       transform: rotateZ(25deg);
