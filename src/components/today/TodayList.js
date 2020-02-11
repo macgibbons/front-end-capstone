@@ -66,13 +66,32 @@ export default (props) => {
         )
     }
 
+    const markOtherDaysAsUnwatered = () => {
+       const notTodaysPlants= currentUserPlants.filter(plant => plant.dayId !== currentDay.id)
+       notTodaysPlants.map(
+        plant =>
+            
+        {
+           if(plant.isCompleted === true){
+               console.log(`${plant.name} was unwatered`);
+               
+               const updatePlantAsNotCompleted = {
+                 id: plant.id,
+                 isCompleted: false
+               };
+               patchPlant(updatePlantAsNotCompleted)}
+           }
+       )
+    }
+
     return (
         <div className="plant--container">
-            <h1>{nameOfToday}</h1>
+            <h1 onChange={()=> {markOtherDaysAsUnwatered()}}>{nameOfToday}</h1>
             <h1>Welcome back {currentUserName.name}!</h1>
             <h3>You have {todaysPlants.length} plants to water today.</h3>
             <div className="checkbox">
-                <input type="checkbox" name="species"  className="form-control" onClick={()=>{markAllAsWatered()}}
+                <input type="checkbox" name="species"  className="form-control" onChange={()=>{markAllAsWatered()
+                markOtherDaysAsUnwatered()}}
                      />
 
                 <label htmlFor="checkbox">mark as all as watered </label>
