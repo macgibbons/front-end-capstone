@@ -1,5 +1,5 @@
 // this is the component responsible for list ALL of the plants
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 // import Plant from "../plants/Plant"
 import { DayContext } from "../days/DayProvider";
 import { PlantContext } from "../plants/PlantProvider";
@@ -11,6 +11,8 @@ export default (props) => {
     const { users } = useContext(UserContext)
     const { plants, patchPlant } = useContext(PlantContext)
     const { days } = useContext(DayContext)
+    const [ watering, setWatering ] = useState(false)
+    const [ plantsToBeWatered, setPlantsToBeWatered ] = useState(0)
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
     const currentUserName = users.find(u => u.id === currentUser) || {}
     const currentUserPlants = plants.filter(p => p.userId == currentUser)
@@ -33,30 +35,53 @@ export default (props) => {
     // filtering through the users plants to find which plants need to be watered today. 
     const todaysPlants = currentUserPlants.filter(p => p.dayId === currentDay.id)
     
+    //  finding all of the unwatered plants with a biweekly schedule
+    let biweeklyPlants =[]
 
-
-    const logInCheck = () => {
-        if(currentUser === ""){
-            window.alert("please log in")
-        } else {
-            console.log("user is logged in");
-            
-            updateApplicationView()
-        
+    todaysPlants.map(plant => {
+        if(plant.waterFrequency === "once every other week" && moment(plant.lastWatered).add(14, 'days') <= moment(Date.now()) ){
+            biweeklyPlants.push(plant) 
+            // console.log(plant.name + moment(plant.lastWatered).subtract(14, 'days'));
         }
-    }
+    })
+        console.log(biweeklyPlants);
 
-    const updateApplicationView = () => {
-        props.history.push("/plants/create")
-    }
+    //  finding all of the unwatered plants with a weekly schedule
+    let weeklyPlants =[]
+
+    todaysPlants.map(plant => {
+        if(plant.waterFrequency === "once a week"){
+             if(moment(plant.lastWatered).add(7, 'days') <= moment(Date.now()) || plant.lastWatered === "" ){
+            weeklyPlants.push(plant) 
+        }}
+    })
+        console.log(weeklyPlants)
+
+    //  finding all of the unwatered plants with a monthly schedule
+    let monthlyPlants =[]
+
+    todaysPlants.map(plant => {
+        if(plant.waterFrequency === "once a month"){
+            if( moment(plant.lastWatered).add(28, 'days') <= moment(Date.now()) || plant.lastWatered === "" ){
+                monthlyPlants.push(plant) 
+        }}
+    })
+
+    console.log(monthlyPlants);
+    
+    const waterThesePlantsToday = weeklyPlants.concat(biweeklyPlants).concat(monthlyPlants)
+
+    console.log(waterThesePlantsToday);
+
+
+
     const markAllAsWatered = () => {
-        todaysPlants.map(
+        waterThesePlantsToday.map(
             plant =>
             
          {
             if(plant.isCompleted === false){
-                console.log(`${plant.name} was watered`);
-                console.log("MOMENT TEST" + moment());
+                
                 
                 const updatePlantAsCompleted = {
                   id: plant.id,
@@ -75,7 +100,6 @@ export default (props) => {
             
         {
            if(plant.isCompleted === true){
-               console.log(`${plant.name} was unwatered`);
                
                const updatePlantAsNotCompleted = {
                  id: plant.id,
@@ -90,10 +114,11 @@ export default (props) => {
         <div className="plant--container">
             <h1 onChange={()=> {markOtherDaysAsUnwatered()}}>{nameOfToday}</h1>
             <h1>Welcome back {currentUserName.name}!</h1>
-            <h3>You have {todaysPlants.length} plants to water today.</h3>
+            <h3>{watering ? (<h3>Congratulations! All of your plants are watered </h3>) : (<h3>You have {waterThesePlantsToday.length} plants to water today</h3>)}</h3>
             <div className="checkbox">
                 <input type="checkbox" name="species"  className="form-control" onChange={()=>{markAllAsWatered()
-                markOtherDaysAsUnwatered()}}
+                markOtherDaysAsUnwatered()
+                setWatering(true)}}
                      />
 
                 <label htmlFor="checkbox">mark as all as watered </label>
@@ -102,12 +127,13 @@ export default (props) => {
             <div className="todayList column">
 
             {
-                todaysPlants.map(plant => {
-
+                waterThesePlantsToday.map(plant => {
+                    
                     const day = days.find(d => d.id === plant.dayId)
+                    
 
                     return <TodayComponent key={plant.id} plant={plant} day={day} />
-                })                
+                })          
             }
             
             </div>

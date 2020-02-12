@@ -15,6 +15,7 @@ export default props => {
     const currentUserRooms = rooms.filter(r => r.userId == currentUser)
 
     
+    
     const editMode = props.match.params.hasOwnProperty("plantId")
 
     const handleControlledInputChange = (event) => {
