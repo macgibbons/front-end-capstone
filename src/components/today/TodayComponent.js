@@ -14,6 +14,8 @@ import { PlantContext } from "../plants/PlantProvider";
 
 export default ({plant, day}) => {
 const { patchPlant } = useContext(PlantContext);
+var moment = require('moment')
+
 return (
     <section className="plant--card card" className={plant.isCompleted ? "plant--card card completed" : "plant--card card"}>
         <div className="plant--header" className={plant.isCompleted ? "completed" : "notCompleted"}>
@@ -31,11 +33,16 @@ return (
             <p className="plant--instructions">
                 water { plant.name } { plant.waterAmount } cups on { day.day }
             </p>
+            <div className="plant--watered--on">
+                <h4>last watered on </h4>
+                <span>{moment(plant.lastWatered).format("ddd, MMM Do")}</span>
+            </div>
             <div className="checkbox">
                 <input type="checkbox" name="species" required className="form-control" 
                 onClick={() => {
                     const updatePlantAsCompleted = {
                       id: plant.id,
+                      lastWatered: Date.now(),
                       isCompleted: true
                     };
                     patchPlant(updatePlantAsCompleted)}}/>
