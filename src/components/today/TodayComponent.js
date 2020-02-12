@@ -34,8 +34,9 @@ return (
                 water { plant.name } { plant.waterAmount } cups on { day.day }
             </p>
             <div className="plant--watered--on">
+                <div>{plant.waterFrequency}</div>
                 <h4>last watered on </h4>
-                <span>{moment(plant.lastWatered).format("ddd, MMM Do")}</span>
+                <span>{plant.lastWatered ? (moment(plant.lastWatered).format("ddd, MMM Do")) : ("I'm new here, and have never been watered")}</span>
             </div>
             <div className="checkbox">
                 <input type="checkbox" name="species" required className="form-control" 
