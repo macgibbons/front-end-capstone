@@ -14,7 +14,7 @@ export default (props) => {
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
     const currentUserName = users.find(u => u.id === currentUser) || {}
     const currentUserPlants = plants.filter(p => p.userId == currentUser)
-
+    var moment = require('moment')
 
     // function to find the long form of todays date
     const Today = new Date()
@@ -56,9 +56,11 @@ export default (props) => {
          {
             if(plant.isCompleted === false){
                 console.log(`${plant.name} was watered`);
+                console.log("MOMENT TEST" + moment());
                 
                 const updatePlantAsCompleted = {
                   id: plant.id,
+                  lastWatered: Date.now(),
                   isCompleted: true
                 };
                 patchPlant(updatePlantAsCompleted)}

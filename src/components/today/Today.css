@@ -21,3 +21,12 @@
 .completed-img {
     opacity: 70%;
 }
+
+.plant--watered--on {
+    margin-block-end: .5em
+}
+
+ .plant--watered--on h4{
+    margin-block-start: 0 !important;
+    margin-block-end: .25em !important;
+}

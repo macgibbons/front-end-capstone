@@ -62,6 +62,7 @@ export default props => {
                     userId: parseInt(localStorage.getItem("currentUser")),
                     roomId: roomId,
                     notes: plant.notes,
+                    lastWatered: "",
                     isCompleted: false,
                     img: plant.img
           
@@ -84,6 +85,7 @@ export default props => {
                         userId: parseInt(localStorage.getItem("currentUser")),
                         roomId: roomId,
                         notes: plant.notes,
+                        lastWatered: "",
                         isCompleted: false,
                         img: image
                     })
