@@ -1,12 +1,4 @@
-// this is the component responsible for listing the all the plants in the different rooms
-
-// it needs to separate the plants into the different seven days and you should see which plants are 
-// on which days
-
-// this is the component responsible for list ALL of the plants
 import React, { useContext } from "react"
-// import { LocationContext } from "../location/LocationProvider"
-// import { CustomerContext } from "../customer/CustomerProvider"
 import "./Rooms.css"
 import { RoomContext } from "./RoomProvider";
 import { PlantContext } from "../plants/PlantProvider";

@@ -1,13 +1,3 @@
-// This will build the component that is rendered on the dom for every plant
-//  it needs to show plant.name
-// plant.scientific_name
-// water amount
-
-
-// ***stretch**
-// a button to mark as completed
-// an image
-
 import React from "react"
 import { Link } from "react-router-dom"
 
@@ -24,13 +14,14 @@ export default ({plant, day}) => (
                 </div>
             </h3>
         </div>
+
         <img className="plant--img" src={(plant.img)} alt="picture of a plant" />
+
         <div className="plant--content">
             <p className="plant--instructions">
                 water { plant.name } { plant.waterAmount } cups on { day.day }
             </p>
-        </div>
-        
+        </div> 
         
     </section>
 )

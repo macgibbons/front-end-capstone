@@ -7,7 +7,6 @@ export const DayContext = React.createContext()
  This component establishes what data can be used.
  */
 export const DayProvider = (props) => {
-    // this is the name of the data in the entireity of the application!! (locations)
     const [days, setDays] = useState([])
 
     const getDays = () => {

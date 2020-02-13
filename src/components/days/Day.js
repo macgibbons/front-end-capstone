@@ -1,12 +1,11 @@
 import React, { useContext } from "react"
-// import { Link } from "react-router-dom"
 import "./Days.css"
 import { DayContext } from "./DayProvider";
 
 export default ({day, DayPlants, history }) => (
-    <section className="">
-        <div className="room--header">
-            <h3 className="plant--name">
+    <section className="day--container">
+        <div className="day--header">
+            <h3 className="day--name">
                     { day.day }
             </h3>
         </div>
@@ -35,10 +34,6 @@ export default ({day, DayPlants, history }) => (
                     }
                 )}
         </div>
-
-        
-        
-       
     </section>
 )
 
