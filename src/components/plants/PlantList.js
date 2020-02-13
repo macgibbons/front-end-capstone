@@ -9,26 +9,9 @@ export default (props) => {
     const { plants } = useContext(PlantContext)
     const { days } = useContext(DayContext)
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
-    const currentUserPlants = plants.filter(p => p.userId == currentUser)
+    const currentUserPlants = plants.filter(p => p.userId === currentUser)
 
-    console.log(currentUser);
-
-    const logInCheck = () => {
-        if(currentUser === ""){
-            window.alert("please log in")
-        } else {
-            console.log("user is logged in");
-            
-            updateApplicationView()
-        
-        }
-    }
-
-    const updateApplicationView = () => {
-        props.history.push("/plants/create")
-    }
-    
-
+   
     return (
         <div className="plant--container">
             <h1>My Plants</h1>
