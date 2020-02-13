@@ -134,7 +134,7 @@ export default (props) => {
             <h1>Welcome back {currentUserName.name}!</h1>
             <div>{watering ? 
                 (<h3>Congratulations! All of your plants are watered </h3>) :
-                (<h3>You have {waterThesePlantsToday.length} plants to water today</h3>)}
+                (<h3>You have  {waterThesePlantsToday.length} {waterThesePlantsToday.length > 1 ? "plants" : "plant"} to water today</h3>)}
             </div>
             <div className="checkbox">
                 <input type="checkbox" name="species"  className="form-control" onChange={()=>{markAllAsWatered()
