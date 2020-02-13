@@ -41,6 +41,7 @@ export default props => {
     }, [plants])
 
     const constructNewPlant = () => {
+        // form validation -- making sure all required fields are filled out
         const roomId = parseInt(plant.roomId)
         if ( plant.roomId === undefined  ) {
             window.alert("Please select a room")
@@ -63,7 +64,7 @@ export default props => {
                     userId: parseInt(localStorage.getItem("currentUser")),
                     roomId: roomId,
                     notes: plant.notes,
-                    lastWatered: "",
+                    lastWatered: plant.lastWatered,
                     isCompleted: false,
                     img: plant.img
           
