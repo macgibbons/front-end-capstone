@@ -2,19 +2,18 @@ import React, { useContext, useState, useEffect } from "react"
 import { PlantContext } from "./PlantProvider";
 import { RoomContext } from "../rooms/RoomProvider";
 import { DayContext } from "../days/DayProvider";
-import { number } from "prop-types";
 
 export default props => {
     const { rooms } = useContext(RoomContext)
     const { addPlant, plants, updatePlant } = useContext(PlantContext)
-    const [plant, setPlant] = useState({})
     const { days } = useContext(DayContext)
-    const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
+    
+    const [plant, setPlant] = useState({})
     const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
-    const currentUserRooms = rooms.filter(r => r.userId == currentUser)
-
     
+    const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
+    const currentUserRooms = rooms.filter(r => r.userId == currentUser)
     
     const editMode = props.match.params.hasOwnProperty("plantId")
 
@@ -25,16 +24,15 @@ export default props => {
         */
         const newPlant = Object.assign({}, plant)
         newPlant[event.target.name] = event.target.value
-        setPlant(newPlant)
-    }
+        setPlant(newPlant)}
 
     const setDefaults = () => {
         if (editMode) {
             const plantId = parseInt(props.match.params.plantId)
             const selectedPlant = plants.find(a => a.id === plantId) || {}
             setPlant(selectedPlant)
+            }
         }
-    }
 
     useEffect(() => {
         setDefaults()
@@ -99,7 +97,8 @@ export default props => {
 
 
  
-
+// this code POSTs the image to cloudinary and sets the state of loading when the image is loading 
+// as well as the state of the image
   const uploadImage = async e => {
     const files = e.target.files
     const data = new FormData()
@@ -126,111 +125,112 @@ export default props => {
         <form className="plant--form container">
             <h2 className="plant--formTitle">{editMode ? "Update Plant" : "New Plant"}</h2>
             <div className="wrapper">
+                <div className="plant-form-pair">
+                    <fieldset>
+                        <div className="plant-form-group">
+                            <label htmlFor="name">Plant Name* </label>
+                            <input type="text" name="name" required autoFocus className="form-control-type1"
+                                proptype="varchar"
+                                placeholder="plant name.."
+                                defaultValue={plant.name}
+                                onChange={handleControlledInputChange}
+                                />
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div className="plant-form-group">
+                            <label htmlFor="species">Plant Species* </label>
+                            <input type="text" name="species" required className="form-control-type1"
+                                proptype="varchar"
+                                placeholder="species..."
+                                defaultValue={plant.species}
+                                onChange={handleControlledInputChange}
+                                />
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
             <div className="plant-form-pair">
 
                 <fieldset>
-                    <div className="plant-form-group">
-                        <label htmlFor="name">Plant Name* </label>
-                        <input type="text" name="name" required autoFocus className="form-control-type1"
-                            proptype="varchar"
-                            placeholder="plant name.."
-                            defaultValue={plant.name}
-                            onChange={handleControlledInputChange}
-                            />
+                    <div className="form-group">
+                        <label htmlFor="roomId">room: </label>
+                        <select name="roomId" className="form-control-type1"
+                            proptype="int"
+                            value={plant.roomId}
+                            onChange={handleControlledInputChange}>
+
+                            <option value="0">Select a room</option>
+                            {currentUserRooms.map(e => (
+                                <option key={e.id} value={e.id}>
+                                    {e.roomName}
+                                </option>
+                            ))}
+                        
+                        </select>
                     </div>
                 </fieldset>
+
                 <fieldset>
-                    <div className="plant-form-group">
-                        <label htmlFor="species">Plant Species* </label>
-                        <input type="text" name="species" required className="form-control-type1"
-                            proptype="varchar"
-                            placeholder="species..."
-                            defaultValue={plant.species}
-                            onChange={handleControlledInputChange}
-                            />
+                    <div className="form-group">
+                        <label htmlFor="lighting">lighting* </label>
+                        <select name="lighting" className="form-control-type1"
+                            proptype="int"
+                            value={plant.lighting}
+                            onChange={handleControlledInputChange}>
+
+                            <option value="0">Select a lighting</option>
+                            <option value="low">low</option>
+                            <option value="medium">medium</option>
+                            <option value="high">high</option>
+                            
+                        
+                        </select>
                     </div>
                 </fieldset>
+
             </div>
-            </div>
+
             <div className="plant-form-pair">
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="roomId">room: </label>
-                    <select name="roomId" className="form-control-type1"
-                        proptype="int"
-                        value={plant.roomId}
-                        onChange={handleControlledInputChange}>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="waterDay">what day?* </label>
+                        <select name="waterDay" className="form-control-type1"
+                            proptype="int"
+                            defaultValue={plant.DayId}
+                            onChange={handleControlledInputChange}>
 
-                        <option value="0">Select a room</option>
-                        {currentUserRooms.map(e => (
-                            <option key={e.id} value={e.id}>
-                                {e.roomName}
-                            </option>
-                        ))}
-                       
-                    </select>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="lighting">lighting* </label>
-                    <select name="lighting" className="form-control-type1"
-                        proptype="int"
-                        value={plant.lighting}
-                        onChange={handleControlledInputChange}>
+                            <option value="0">Select a day</option>
+                            {days.map(e => (
+                                <option key={e.id} value={e.id}>
+                                    {e.day}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </fieldset>
 
-                        <option value="0">Select a lighting</option>
-                        <option value="low">low</option>
-                        <option value="medium">medium</option>
-                        <option value="high">high</option>
-                        
-                    
-                    </select>
-                </div>
-            </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="waterFrequency">Frequency* </label>
+                        <select name="waterFrequency" className="form-control-type1"
+                            proptype="varchar"
+                            value={plant.waterFrequency}
+                            onChange={handleControlledInputChange}>
+
+                            <option value="0">how often?</option>
+                            <option value="once a week">once a week</option>
+                            <option value="once every other week">once every other week</option>
+                            <option value="once a month">once a month</option>
+                        </select>
+                    </div>
+                </fieldset>
+
             </div>
-            <div className="plant-form-pair">
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="waterDay">what day?* </label>
-                    <select name="waterDay" className="form-control-type1"
-                        proptype="int"
-                        defaultValue={plant.DayId}
-                        onChange={handleControlledInputChange}>
-
-                        <option value="0">Select a day</option>
-                        {days.map(e => (
-                            <option key={e.id} value={e.id}>
-                                {e.day}
-                            </option>
-                        ))}
-                        
-                        
-                        
-                    </select>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="waterFrequency">Frequency* </label>
-                    <select name="waterFrequency" className="form-control-type1"
-                        proptype="varchar"
-                        value={plant.waterFrequency}
-                        onChange={handleControlledInputChange}>
-
-                        <option value="0">how often?</option>
-                        <option value="once a week">once a week</option>
-                        <option value="once every other week">once every other week</option>
-                        <option value="once a month">once a month</option>
-                    
-                        
-                        
-                    </select>
-                </div>
-            </fieldset>
-            </div>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="waterAmount">how much water? </label>
@@ -241,6 +241,7 @@ export default props => {
                         cups
                 </div>
             </fieldset>
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="notes">Notes: </label>
@@ -252,14 +253,13 @@ export default props => {
                 </div>
             </fieldset>
             
-
-                <div className="image--upload" >
-                    
-                    {editMode ? 
-                    
+            <div className="image--upload" >
+                
+                {editMode ? 
+                
                     <img src={plant.img} style={{ width: '300px' }} /> 
-                    
-                    :
+                
+                :
 
                     <input
                         className="form-control-type2"
@@ -268,14 +268,14 @@ export default props => {
                         placeholder="Upload an image"
                         onChange={uploadImage}
                     />
-                    
-                    }
-                    {loading ? (
-                        <h3>Loading...</h3>
-                    ) : (
-                        <img src={image} style={{ width: '300px' }} />
-                    )}
-                </div>
+                
+                }
+                {loading ? (
+                    <h3>Loading...</h3>
+                ) : (
+                    <img src={image} style={{ width: '300px' }} />
+                )}
+            </div>
             
             <button type="submit"
                 onClick={evt => {
@@ -285,6 +285,7 @@ export default props => {
                 className="btn btn-primary">
                 {editMode ? "Save Updates" : "Add Plant"}
             </button>
+            
         </form>
     )
 }

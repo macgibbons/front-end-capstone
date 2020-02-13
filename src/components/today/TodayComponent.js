@@ -1,13 +1,3 @@
-// This will build the component that is rendered on the dom for every plant
-//  it needs to show plant.name
-// plant.scientific_name
-// water amount
-
-
-// ***stretch**
-// a button to mark as completed
-// an image
-
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { PlantContext } from "../plants/PlantProvider";

@@ -7,7 +7,6 @@ export const PlantContext = React.createContext()
  This component establishes what data can be used.
  */
 export const PlantProvider = (props) => {
-    // this is the name of the data in the entireity of the application!! (locations)
     const [plants, setPlants] = useState([])
 
     const getPlants = () => {
@@ -74,5 +73,3 @@ export const PlantProvider = (props) => {
         </PlantContext.Provider>
     )
 }
-
-// it also needs to expand on room and Day

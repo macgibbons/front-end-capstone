@@ -1,7 +1,6 @@
 
 
 import React, { useContext } from "react"
-import { Link } from "react-router-dom"
 import "./Rooms.css"
 import { DayContext } from "../days/DayProvider";
 
@@ -14,9 +13,9 @@ export default ({room, RoomPlants, history }) => (
             </h3>
 
             <div className="btn edit--btn"
-                            onClick={() => {
-                                history.push(`/rooms/edit/${room.id}`)
-                            }}>
+                onClick={() => {
+                    history.push(`/rooms/edit/${room.id}`)
+                }}>
                 <img className="icon" src={require ('../icons/edit.svg')}/>
             </div>
         </div>
@@ -31,14 +30,14 @@ export default ({room, RoomPlants, history }) => (
                     return (
                         
                     <>
-                    <div className="card">
-                        <div>{p.name}</div>
-                        <p> {p.species}</p>
-                        <img className="plant--img" src={ (p.img)}/>
-                        <div>
-                            <p>{p.waterAmount} cups every {day.day} </p>
+                        <div className="card">
+                            <div>{p.name}</div>
+                            <p> {p.species}</p>
+                            <img className="plant--img" src={ (p.img)}/>
+                            <div>
+                                <p>{p.waterAmount} cups every {day.day} </p>
+                            </div>
                         </div>
-                    </div>
                     </>
                 )
                 }

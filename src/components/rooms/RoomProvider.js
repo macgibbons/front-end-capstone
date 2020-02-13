@@ -7,7 +7,6 @@ export const RoomContext = React.createContext()
  This component establishes what data can be used.
  */
 export const RoomProvider = (props) => {
-    // this is the name of the data in the entireity of the application!! (locations)
     const [rooms, setRooms] = useState([])
 
     const getRooms = () => {

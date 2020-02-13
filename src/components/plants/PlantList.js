@@ -1,4 +1,3 @@
-// this is the component responsible for list ALL of the plants
 import React, { useContext } from "react"
 import { PlantContext } from "./PlantProvider";
 import Plant from "./Plant"
@@ -6,8 +5,11 @@ import "./Plants.css"
 import { DayContext } from "../days/DayProvider";
 
 export default (props) => {
+    // ***** CONTEXT *****
     const { plants } = useContext(PlantContext)
     const { days } = useContext(DayContext)
+
+    // ***** USER *****
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
     const currentUserPlants = plants.filter(p => p.userId === currentUser)
 
@@ -22,7 +24,6 @@ export default (props) => {
                 currentUserPlants.map(plant => {
 
                     
-                    // const owner = customers.find(c => c.id === animal.customerId)
                     const day = days.find(d => d.id === plant.dayId)
 
                     return <Plant key={plant.id} plant={plant} day={day} />
