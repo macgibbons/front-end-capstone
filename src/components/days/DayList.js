@@ -23,7 +23,6 @@ export default (props) => {
 
                     
                     const DayPlants = currentUserPlants.filter(p => p.dayId === day.id)
-                    // const clinic = locations.find(l => l.id === animal.locationId)
                     
                     return <Day {...props} key={day.id}  day={day} DayPlants={DayPlants} />
                 })                

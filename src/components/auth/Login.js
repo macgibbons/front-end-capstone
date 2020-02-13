@@ -31,23 +31,7 @@ const Login = props => {
                 } else if (exists && exists.password !== password.current.value) {
                     window.alert("Password does not match")
                 } else if (!exists) {
-                    fetch("http://localhost:8088/customers", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            email: email.current.value,
-                            password: password.current.value,
-                            name: userName.current.value,
-                            address: address.current.value
-                        })
-                    })
-                        .then(_ => _.json())
-                        .then(response => {
-                            localStorage.setItem("currentUser", response.id)
-                            props.history.push("/")
-                        })
+                   window.alert("User does not exist")
                 }
             })
     }
