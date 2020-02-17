@@ -87,7 +87,7 @@ export default props => {
                         notes: plant.notes,
                         lastWatered: "",
                         isCompleted: false,
-                        img: image
+                        img:  image === ""  ?  ("https://res.cloudinary.com/dizvtfdgm/image/upload/v1581437088/plants/xn9h0ezjur4z3b4k0jbp.jpg") : (image) 
                     })
                         .then(() => props.history.push("/plants"))
                 }
