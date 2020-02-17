@@ -35,7 +35,7 @@ export default ({room, RoomPlants, history }) => (
                             <p> {p.species}</p>
                             <img className="plant--img" src={ (p.img)}/>
                             <div>
-                                <p>{p.waterAmount} cups every {day.day} </p>
+                                <p>{p.waterAmount} cups {p.waterFrequency}  on {day.day} </p>
                             </div>
                         </div>
                     </>

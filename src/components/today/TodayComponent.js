@@ -22,9 +22,9 @@ return (
         <div className="plant--content">
             <p className="plant--instructions">
                 water { plant.name } { plant.waterAmount } cups on { day.day }
+                <div>{plant.waterFrequency}</div>
             </p>
             <div className="plant--watered--on">
-                <div>{plant.waterFrequency}</div>
                 <h4>last watered on </h4>
                 <span>{plant.lastWatered ? (moment(plant.lastWatered).format("ddd, MMM Do")) : ("I'm new here, and have never been watered")}</span>
             </div>
