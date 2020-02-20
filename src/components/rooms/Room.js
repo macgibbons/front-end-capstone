@@ -7,8 +7,8 @@ import { DayContext } from "../days/DayProvider";
 export default ({room, RoomPlants, history }) => (
     
     <section className="">
-        <div className="room--header">
-            <h3 className="plant--name">
+        <div className="room--header sub--header">
+            <h3 className="">
                     { room.roomName }
             </h3>
 
@@ -16,7 +16,7 @@ export default ({room, RoomPlants, history }) => (
                 onClick={() => {
                     history.push(`/rooms/edit/${room.id}`)
                 }}>
-                <img className="icon" src={require ('../icons/edit.svg')}/>
+                <img className="icon edit--icon" src={require ('../icons/edit.svg')}/>
             </div>
         </div>
 

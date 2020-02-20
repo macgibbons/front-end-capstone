@@ -5,9 +5,9 @@ import { DayContext } from "./DayProvider";
 export default ({day, DayPlants, history }) => (
     <section className="day--container">
         <div className="day--header">
-            <h3 className="day--name">
+            <div className="header content--header">
                     { day.day }
-            </h3>
+            </div>
         </div>
 
         <div className="dayPlantList">

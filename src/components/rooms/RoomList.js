@@ -12,7 +12,9 @@ export default (props) => {
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
     const currentUserRooms = rooms.filter(r => r.userId === currentUser)
 
-    
+    if(currentUser !== null) {
+        document.body.classList.add("user--loggedIn")
+    }
     const logInCheck = () => {
         if(currentUser === ""){
             window.alert("please log in")
@@ -31,7 +33,7 @@ export default (props) => {
     return (
         <div className="plant--container container">
             <div className="room--header">
-                <h1>My Rooms</h1>
+                <div className="header content--header">My Rooms</div>
                 <div className="btn add--btn"
                     onClick={() => {logInCheck()}}>
                     <img className="icon" src={require ('./add.svg')}/>
