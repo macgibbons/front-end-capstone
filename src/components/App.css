@@ -9,4 +9,13 @@
 body {
     background-color: #1F3B20;
     font-family: CothamSans;
+   
+}
+
+.user--loggedIn {
+    background-color: white;
+}
+
+.main--view {
+    display: flex;
 }
