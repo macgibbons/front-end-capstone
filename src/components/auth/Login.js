@@ -40,7 +40,7 @@ const Login = props => {
         <main className="container--login">
             <section className="login">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1 className="header login--header">welcome</h1>
+                    <div className="header login--header">welcome</div>
                     <fieldset className="loginfieldset">
                         <input ref={email} type="email"
                             id="email"
@@ -59,8 +59,8 @@ const Login = props => {
                             Sign in
                     </button>
                     </fieldset>
-            <section className="link--register">
-                <span> Not a member? </span><Link to="/register">Sign up!</Link>
+            <section className="not-a-member">
+                <span> Not a member? </span><Link className="link--register"to="/register">Sign up!</Link>
             </section>
                 </form>
             </section>

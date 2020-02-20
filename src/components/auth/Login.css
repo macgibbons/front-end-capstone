@@ -7,23 +7,37 @@
 }
 
 .form--login{
+  width: 100% !important ;
   display: flex;
   flex-direction: column;
   width: fit-content;
-align-items: center;
+  align-items: center;
 }
 
 .login {
+    padding: 60px 100px;
     border: 1px solid #efefef;
     background-color: white;
-    padding: 5em;
-    padding-top: 3em;
-    width: 25%;
+    width: 30%;
     margin: 3em;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.register--login {
+  padding: 60px 100px;
+  border: 1px solid #efefef;
+  background-color: white;
+  width: 50%;
+  margin: 3em;
+  text-align: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 .loginLabel {
@@ -32,17 +46,25 @@ align-items: center;
 }
 
 .loginfieldset {
-    margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+input.loginInput{
+  padding: none;
+  font-size: 12pt;
+  font-weight: 100
+}
 
 .link--register {
     margin-top: 10px;
+    color: #1F3B20
 }
 
+.not-a-member {
+  font-size: 10pt;
+}
 
 .registerInput {
     width: 80%;
@@ -55,6 +77,11 @@ align-items: center;
 
 .login--header {
   font-size: 60px;
+  padding-bottom: 60px;
+}
+.register--header {
+  font-size: 30px;
+  padding-bottom: 20px;
 }
 
 .loginInput{
@@ -70,13 +97,12 @@ input[type="button"] {
   display: inline-block;
   height: 38px;
   color: white;
-  background-color: #206322 !important;
+  background-color: #177E1A !important;
   text-align: center;
-  font-size: 11px;
+  font-size: 14px;
   padding: 0 70px;
   font-weight: 600;
   line-height: 10px;
-  letter-spacing: .1rem;
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
@@ -133,6 +159,7 @@ input[type="button"].button-primary:focus {
     background-color: #fff;
     border: none;
     border-bottom: 1px solid #828282;
+    padding: none;
     box-shadow: none;
     box-sizing: border-box; }
   /* Removes awkward default styles on some inputs for iOS */
