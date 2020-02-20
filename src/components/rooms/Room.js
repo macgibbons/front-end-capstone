@@ -3,7 +3,9 @@
 import React, { useContext } from "react"
 import "./Rooms.css"
 import { DayContext } from "../days/DayProvider";
+import { Link } from "react-router-dom"
 
+var moment = require('moment')
 export default ({room, RoomPlants, history }) => (
     
     <section className="">
@@ -22,22 +24,55 @@ export default ({room, RoomPlants, history }) => (
 
         <div className= "roomPlantList">
             {
-                RoomPlants.map(p =>
+                RoomPlants.map(plant =>
                 {
                     const { days } = useContext(DayContext)
-                    const day = days.find(d => d.id === p.dayId)
+                    const day = days.find(d => d.id === plant.dayId)
 
                     return (
                         
                     <>
-                        <div className="card">
-                            <div>{p.name}</div>
-                            <p> {p.species}</p>
-                            <img className="plant--img" src={ (p.img)}/>
-                            <div>
-                                <p>{p.waterAmount} cups {p.waterFrequency}  on {day.day} </p>
-                            </div>
+                    <section className="plant--card card">
+
+                        <div className="plant--header">
+                            <h3 className="plant--name">
+                                <Link  className="header card--header" to={`/plants/${plant.id}`}>
+                                    { plant.name }
+                                </Link>
+                                <div className="cardSub--header">
+                                    { plant.species }
+                                </div>
+                            </h3>
                         </div>
+
+                        <img className="plant--img" src={(plant.img)} alt="picture of a plant" />
+
+                        <div className="plant--cardDetails">
+
+                            <div className="card--detailPair">
+                                <div className="card--subTitle">Frequency:</div>
+                                <span>{plant.waterFrequency}</span>
+                            </div>
+
+                            <div className="card--detailPair">
+                                <div className="card--subTitle">Cups of water:</div>
+                                <span className="plant--instructions">{ plant.waterAmount } </span>
+                            </div>
+
+                            <div className="card--detailPair">
+                                <div className="card--subTitle">Schedule day:</div>
+                                <span> { day.day } </span>
+                            </div>
+                            <div className="card--detailPair">
+                                <div className="card--subTitle">Last watered:</div>
+                                <span>{plant.lastWatered ? (moment(plant.lastWatered).format("ddd, MMM Do")) : ("I'm new here!")}</span>
+                            </div>
+                            
+                        </div>
+
+
+
+                        </section>
                     </>
                 )
                 }

@@ -9,14 +9,36 @@
     flex-wrap: wrap;
 }
 
+.plant--cardDetails {
+    margin-top: 1em;
+}
+
 .checkbox {
     display: flex;
     justify-content: flex-end;
     color: #1F3B20;
     font-weight: 100;
 }
+.checkbox2 {
+    margin-top: 2em;
+    display: flex;
+    justify-content: flex-start;
+    color: #1F3B20;
+    font-weight: 100;
+}
 
+.card--header {
+    color: #177E1A;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    
+}
 
+.cardSub--header {
+    margin: .5em 0 1em 0;
+    text-transform: capitalize
+
+}
 .completed {
     text-decoration: line-through;
     background-color: rgb(228, 228, 228);
@@ -26,6 +48,18 @@
 .completed-img {
     opacity: 70%;
 }
+.card--subTitle{
+    color: #1F3B20;
+    font-family: YoungSerif-Regular;
+    margin-right: .5em;
+}
+
+.card--detailPair {
+    line-height: 2;
+    display: flex;
+    align-items: baseline;
+}
+
 
 .plant--watered--on {
     margin-block-end: .5em

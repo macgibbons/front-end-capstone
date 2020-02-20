@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import "./Days.css"
 import { DayContext } from "./DayProvider";
+import Plant from "../plants/Plant";
 
 export default ({day, DayPlants, history }) => (
     <section className="day--container">
@@ -12,23 +13,14 @@ export default ({day, DayPlants, history }) => (
 
         <div className="dayPlantList">
             {
-                DayPlants.map(p =>
+                DayPlants.map(plant =>
                     {
                         const { days } = useContext(DayContext)
-                        const day = days.find(d => d.id === p.dayId)
+                        const day = days.find(d => d.id === plant.dayId)
                 
                         return (
-                            
-                        <>
-                        <div className="card">
-                            <div>{p.name}</div>
-                            <p> {p.species}</p>
-                            <img className="plant--img" src={ (p.img)}/>
-                            <div>
-                                <p>{p.waterAmount} cups every {day.day} </p>
-                            </div>
-                        </div>
-                        </>
+                            <Plant key={plant.id} plant={plant} day={day} />
+                        
                     )
 
                     }
