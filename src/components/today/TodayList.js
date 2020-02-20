@@ -111,6 +111,10 @@ export default (props) => {
       )
     }
 
+    if(currentUser !== null) {
+        document.body.classList.add("user--loggedIn")
+    }
+
     const markOtherDaysAsUnwatered = () => {
        const notTodaysPlants= currentUserPlants.filter(plant => plant.dayId !== currentDay.id)
        notTodaysPlants.map(
