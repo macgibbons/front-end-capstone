@@ -30,6 +30,10 @@
     width: 100%;
 }
 
+.plant--name a{
+    color: black;
+}
+
 .plant--img--detail {
     width: 40%;
 }

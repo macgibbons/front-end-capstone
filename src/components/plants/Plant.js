@@ -6,7 +6,7 @@ export default ({plant, day}) => (
 
         <div className="plant--header">
             <h3 className="plant--name">
-                <Link to={`/plants/${plant.id}`}>
+                <Link  className="plant--name" to={`/plants/${plant.id}`}>
                     { plant.name }
                 </Link>
                 <div className="plant--species">
