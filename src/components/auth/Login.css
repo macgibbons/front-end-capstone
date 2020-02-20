@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4em;
 
 }
 
@@ -15,7 +14,7 @@
 }
 
 .login {
-    padding: 60px 100px;
+    padding: 3em 3em;
     border: 1px solid #efefef;
     background-color: white;
     width: 30%;
@@ -24,10 +23,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 .register--login {
-  padding: 60px 100px;
+  padding: 3em 3em;
   border: 1px solid #efefef;
   background-color: white;
   width: 50%;
@@ -37,16 +37,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  z-index: 1;
 }
 
 .loginLabel {
-    margin-top: 15px;
+    margin-top: .5em;
     margin-bottom: 1px;
 }
 
 .loginfieldset {
-    margin-bottom: 40px;
+    margin-bottom: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,8 +58,9 @@ input.loginInput{
 }
 
 .link--register {
-    margin-top: 10px;
-    color: #1F3B20
+    margin-top: 1em;
+    color: #1F3B20;
+    margin-bottom: 1em;
 }
 
 .not-a-member {
@@ -72,12 +73,24 @@ input.loginInput{
 
 .header{
   font-family: YoungSerif-Regular;
-  color: #1F3B20;
 }
 
 .login--header {
-  font-size: 60px;
-  padding-bottom: 60px;
+  font-size: 3.5em;
+  padding-bottom: .75em;
+  color: #1F3B20
+}
+
+.login--page--header {
+  color: #FBB4B4;
+  font-size: 3em;
+  margin-bottom: .1em;
+}
+.login--page--subheader {
+  color: #FBB4B4;
+  font-size: 1em;
+  letter-spacing: .05em;
+  margin-bottom: 2em;
 }
 .register--header {
   font-size: 30px;
@@ -88,6 +101,28 @@ input.loginInput{
   width: 100%;
 }
 
+.plant1 {
+  position: absolute;
+  top: 58%;
+  left: -8%;
+}
+
+.plant2 {
+  position: absolute;
+  left: 16%;
+  top: 75%;
+}
+.plant3 {
+  position: absolute;
+  right: 18%;
+  top: 64%;
+}
+
+.plant4 {
+  position: absolute;
+  top: 50%;
+  right: -3%;
+}
 
 .button,
 button,
@@ -123,6 +158,8 @@ input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
   color: #333;
+  background-color: white !important;
+  border: 1px solid #177E1A;
   outline: 0; }
 .button.button-primary,
 button.button-primary,
@@ -205,3 +242,12 @@ input[type="button"].button-primary:focus {
     margin-left: .5rem;
     font-weight: normal; }
   
+
+  @media (max-width: 600px){
+    .login--header {
+      font-size: 2em;
+      
+    }
+
+   
+  }

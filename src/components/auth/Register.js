@@ -50,6 +50,7 @@ const Register = props => {
     }
 
     return (
+        <>
         <main className="container--login">
             <section className="register--login">
                 <form className="form--login" onSubmit={handleRegister}>
@@ -98,6 +99,11 @@ const Register = props => {
                 </form>
             </section>
         </main>
+         <img className="plant1" src={require ('./plant1.svg')}/>
+         <img className="plant2" src={require ('./plant2.svg')}/>
+         <img className="plant4" src={require ('./plant4.svg')}/>
+         <img className="plant3" src={require ('./plant3.svg')}/>
+         </>
     )
 }
 

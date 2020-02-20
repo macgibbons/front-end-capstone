@@ -37,7 +37,10 @@ const Login = props => {
     }
 
     return (
+        <>
         <main className="container--login">
+            <h1 className="header login--page--header">fern</h1>
+            <div className="login--page--subheader">Soil, water, sun, repeat</div>
             <section className="login">
                 <form className="form--login" onSubmit={handleLogin}>
                     <div className="header login--header">welcome</div>
@@ -65,6 +68,11 @@ const Login = props => {
                 </form>
             </section>
         </main>
+            <img className="plant1" src={require ('./plant1.svg')}/>
+            <img className="plant2" src={require ('./plant2.svg')}/>
+            <img className="plant4" src={require ('./plant4.svg')}/>
+            <img className="plant3" src={require ('./plant3.svg')}/>
+            </>
     )
 }
 export default Login
