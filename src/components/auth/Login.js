@@ -40,10 +40,8 @@ const Login = props => {
         <main className="container--login">
             <section className="login">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>TITLE</h1>
-                    <h2>log in</h2>
+                    <div className="header login--header">welcome</div>
                     <fieldset className="loginfieldset">
-                        <label className="loginLabel" htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email"
                             id="email"
                             className="loginInput"
@@ -51,7 +49,6 @@ const Login = props => {
                             required autoFocus />
                     </fieldset>
                     <fieldset className="loginfieldset">
-                        <label className="loginLabel" htmlFor="inputPassword"> Password </label>
                         <input className="loginInput" ref={password} type="password"
                             id="password"
                             placeholder="Password"
@@ -59,13 +56,13 @@ const Login = props => {
                     </fieldset>
                     <fieldset className="loginfieldset">
                         <button type="submit">
-                            log in
+                            Sign in
                     </button>
                     </fieldset>
-                </form>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+            <section className="not-a-member">
+                <span> Not a member? </span><Link className="link--register"to="/register">Sign up!</Link>
             </section>
+                </form>
             </section>
         </main>
     )

@@ -3,18 +3,41 @@
     flex-direction: column;
     align-items: center;
     padding: 4em;
+
+}
+
+.form--login{
+  width: 100% !important ;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: center;
 }
 
 .login {
+    padding: 60px 100px;
     border: 1px solid #efefef;
-    padding: 5em;
-    padding-top: 3em;
-    width: 25%;
+    background-color: white;
+    width: 30%;
     margin: 3em;
-    border-radius: 16px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.register--login {
+  padding: 60px 100px;
+  border: 1px solid #efefef;
+  background-color: white;
+  width: 50%;
+  margin: 3em;
+  text-align: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 .loginLabel {
@@ -23,22 +46,47 @@
 }
 
 .loginfieldset {
-    margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input.loginInput{
+  padding: none;
+  font-size: 12pt;
+  font-weight: 100
 }
 
 .link--register {
     margin-top: 10px;
+    color: #1F3B20
 }
 
-.loginInput {
-    width: 200%;
+.not-a-member {
+  font-size: 10pt;
 }
 
 .registerInput {
     width: 80%;
 }
 
+.header{
+  font-family: YoungSerif-Regular;
+  color: #1F3B20;
+}
+
+.login--header {
+  font-size: 60px;
+  padding-bottom: 60px;
+}
+.register--header {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+.loginInput{
+  width: 100%;
+}
 
 
 .button,
@@ -47,21 +95,20 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
   display: inline-block;
-  font-family: 'Roboto Mono', monospace;
   height: 38px;
-  padding: 0 30px;
-  color: #555;
+  color: white;
+  background-color: #177E1A !important;
   text-align: center;
-  font-size: 11px;
+  font-size: 14px;
+  padding: 0 70px;
   font-weight: 600;
-  line-height: 38px;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
+  line-height: 10px;
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
-  border-radius: 16px;
-  border: 1px solid #bbb;
+  border-radius: 30px;
+  margin: auto;
+  border: none;
   cursor: pointer;
   box-sizing: border-box; }
 
@@ -76,7 +123,6 @@ input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
   color: #333;
-  border-color: #888;
   outline: 0; }
 .button.button-primary,
 button.button-primary,
@@ -110,10 +156,10 @@ input[type="button"].button-primary:focus {
   textarea,
   select {
     height: 38px;
-    padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
     background-color: #fff;
-    border: 1px solid #D1D1D1;
-    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid #828282;
+    padding: none;
     box-shadow: none;
     box-sizing: border-box; }
   /* Removes awkward default styles on some inputs for iOS */

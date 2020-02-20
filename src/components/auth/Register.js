@@ -51,11 +51,11 @@ const Register = props => {
 
     return (
         <main className="container--login">
-            <section className="login">
+            <section className="register--login">
                 <form className="form--login" onSubmit={handleRegister}>
-                    <h1 className="h3 mb-3 font-weight-normal">Welcome! Please create an account</h1>
+                    <div className="header register--header">welcome to fern!</div>
+                    <div className="header">Please create an account</div>
                     <fieldset className="loginfieldset">
-                        <label htmlFor="firstName"> First Name </label>
                         <input ref={firstName} type="text"
                             name="firstName"
                             className="registerInput"
@@ -63,7 +63,6 @@ const Register = props => {
                             required autoFocus />
                     </fieldset>
                     <fieldset className="loginfieldset">
-                        <label htmlFor="lastName"> Last Name </label>
                         <input ref={lastName} type="text"
                             name="lastName"
                             className="registerInput"
@@ -71,7 +70,6 @@ const Register = props => {
                             required />
                     </fieldset>
                     <fieldset className="loginfieldset">
-                        <label htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email"
                             name="email"
                             className="registerInput"
@@ -79,7 +77,6 @@ const Register = props => {
                             required />
                     </fieldset>
                     <fieldset className="loginfieldset">
-                        <label htmlFor="inputPassword"> Password </label>
                         <input ref={password} type="password"
                             name="password"
                             className="registerInput"
@@ -87,7 +84,6 @@ const Register = props => {
                             required />
                     </fieldset>
                     <fieldset className="loginfieldset">
-                        <label htmlFor="verifyPassword"> Verify Password </label>
                         <input ref={verifyPassword} type="password"
                             name="verifyPassword"
                             className="registerInput"
