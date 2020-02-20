@@ -34,10 +34,12 @@
 
 .plant--img {
     width: 100%;
+    display: flex;
 }
 
 .plant--name a{
-    color: black;
+    text-decoration: none;
+   
 }
 
 .plant--img--detail {
