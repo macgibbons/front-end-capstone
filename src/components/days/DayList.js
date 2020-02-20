@@ -11,7 +11,9 @@ export default (props) => {
     const currentUserPlants = plants.filter(p => p.userId === currentUser)
 
     
-
+    if(currentUser !== null) {
+        document.body.classList.add("user--loggedIn")
+    }
 
     return (
         <div className="plant--container container">

@@ -13,10 +13,13 @@ export default (props) => {
     const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
     const currentUserPlants = plants.filter(p => p.userId === currentUser)
 
+    if(currentUser !== null) {
+        document.body.classList.add("user--loggedIn")
+    }
    
     return (
         <div className="plant--container">
-            <h1>My Plants</h1>
+            <div className="header content--header">My Plants</div>
           
             <div className="plantList column">
 

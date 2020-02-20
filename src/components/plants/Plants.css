@@ -5,9 +5,15 @@
     
 }
 
+
+.plant--card {
+    flex-basis: 10%;
+}
+
 .plantList{
     display: flex;
     flex-wrap: wrap;
+  
 }
 
 .header--buttons {
