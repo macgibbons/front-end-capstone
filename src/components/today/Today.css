@@ -1,7 +1,7 @@
 .plant--container{
     display: flex;
     flex-direction: column;
-    margin: 0 10% 0 10%;
+    margin: 2% 6%;
 }
 
 .todayList {
@@ -11,7 +11,12 @@
 
 .checkbox {
     display: flex;
+    justify-content: flex-end;
+    color: #1F3B20;
+    font-weight: 100;
 }
+
+
 .completed {
     text-decoration: line-through;
     background-color: rgb(228, 228, 228);
@@ -29,4 +34,17 @@
  .plant--watered--on h4{
     margin-block-start: 0 !important;
     margin-block-end: .25em !important;
+}
+
+.content--header {
+    color:#1F3B20;
+    font-size: 2.3em;
+    font-weight: 300;
+    padding-bottom: .7em;
+}
+
+.sub--header {
+    color: #1F3B20;
+    letter-spacing: .06em;
+    font-size: .9em;
 }
