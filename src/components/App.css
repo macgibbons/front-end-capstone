@@ -1,7 +1,7 @@
 .card {
     padding: 10px;
     border: 1px solid black;
-    flex-basis: 20%;
+    flex-basis: 25%;
     /* max-width: max-content; */
     margin: 10px;
 }

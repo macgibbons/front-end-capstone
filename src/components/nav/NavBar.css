@@ -1,15 +1,16 @@
 .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
     display: flex;
-    padding-left: 2em;
+    padding-left: 2.5em;
     padding-top: 2.5em;
     flex-direction: column;
-    flex-wrap: nowrap;
     margin-left: -1em;
     margin-top: -1em;
-    flex-basis: 20%;
+    min-width: 15%;
+    /* flex-basis: 20%; */
     font-weight: 100;
-    height: inherit;
+    height: 60em;
     margin-bottom: -20em;
     background-color: #1F3B20;
 
