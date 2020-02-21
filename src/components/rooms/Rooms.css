@@ -16,3 +16,15 @@
 .edit--icon {
     height: 1em;
 }
+
+.room--form {
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    margin: 7em auto auto auto;
+    border-radius: 8px;
+    padding: 0 5% 1% 5%;
+    line-height: 3em;
+}
+
+.roomBtn {
+    margin-top: 1em;
+}

@@ -7,7 +7,7 @@ export default (props) => {
     <>
         <section className="navbar">
         <div className="header nav--header">fern</div>
-            <div className="login--page--subheader">Soil, water, sun, repeat</div>
+            <div className="login--page--subheader">Soil, water, sun. Repeat</div>
             <div className="navbar__item nav--pair">
                 <Link className="navbar__link" to="/plants/create">Add Plant
                 </Link>

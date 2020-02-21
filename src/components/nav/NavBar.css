@@ -71,10 +71,10 @@
     cursor: pointer;
 }
 
-@media (max-width: 1400px ) {
+@media (min-width: 2000px ) {
 
     .navbar {
-        flex-basis: 30%;
+        flex-basis: 25%;
     }
 
 }

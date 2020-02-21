@@ -7,6 +7,11 @@ export default props => {
 
     
     const editMode = props.match.params.hasOwnProperty("roomId")
+    const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
+
+    if(currentUser !== null) {
+        document.body.classList.add("user--loggedIn")
+    }
 
     const handleControlledInputChange = (event) => {
         /*
@@ -67,12 +72,12 @@ export default props => {
 
     return (
         <form className="room--form container">
-            <h2 className="room--formTitle">{editMode ? "Update Room" : "New Room"}</h2>
+            <h2 className="room--formTitle header detail--header">{editMode ? "Update Room" : "New Room"}</h2>
             <div className="btn delete--btn">{editMode ? deleteButton : ""} </div>
             <div className="wrapper">
                 <fieldset>
                     <div className="room-form-group">
-                        <label htmlFor="roomName">Room Name* </label>
+                        {/* <label htmlFor="roomName">Room Name* </label> */}
                         <input type="text" name="roomName" required autoFocus className="form-control"
                             proptype="varchar"
                             placeholder="room name.."
@@ -87,7 +92,7 @@ export default props => {
                     evt.preventDefault()
                     constructNewRoom()
                 }}
-                className="btn btn-primary">
+                className="btn btn-primary roomBtn">
                 {editMode ? "Save Updates" : "Add Room"}
             </button>
         </form>
