@@ -10,17 +10,23 @@ export default (props) => {
     const { days } = useContext(DayContext)
     
     const chosenPlantId = parseInt(props.match.params.plantId, 10)
+    const currentUser = parseInt(localStorage.getItem("currentUser"), 10)
 
     const plant = plants.find(p => p.id === chosenPlantId) || {}
     const room = rooms.find(r => r.id === plant.roomId) || {}
     const day = days.find(day => day.id === plant.dayId) || {}
+    var moment = require('moment')
+
+    if(currentUser !== null) {
+        document.body.classList.add("user--loggedIn")
+    }
 
     return (
         <section className="plant--detailCard plant--container">
 
             <div className="plant--detailHeader">
                 <div className="header--buttons">
-                    <h3 className="plant--detailName">{ plant.name }</h3>
+                    <div className="header detail--header plant--detailName">{ plant.name }</div>
                     <div className="btns">
                         <div className="btn delete--btn"
                             onClick={() => {
@@ -41,20 +47,48 @@ export default (props) => {
                     </div>
                 </div>
 
-                <div className="plant--detailSpecies">
+                <div className="sub--header detail--subHeader">
                     { plant.species }
                 </div>
             </div>
 
             <div className="plant--content">
-                <img className="plant--img--detail" src={ (plant.img)}/>
-                <p className="plant--instructions">
-                    { plant.name } lives in the { room.roomName } and likes to be water { plant.waterAmount } cups of water {plant.waterFrequency} on { day.day }
-                </p>
-            </div>
-            <div>
-                <h2> notes:</h2>
-                <p>{plant.notes}</p>
+                    <img className="plant--img--detail" src={ (plant.img)}/>
+               
+        <div className="details--content">
+
+                <div className="card--detailPair">
+                    <div className="card--subTitle">Frequency:</div>
+                    <span>{plant.waterFrequency}</span>
+                </div>
+
+                <div className="card--detailPair">
+                    <div className="card--subTitle">Cups of water:</div>
+                    <span className="plant--instructions">{ plant.waterAmount } </span>
+                </div>
+
+                <div className="card--detailPair">
+                    <div className="card--subTitle">Room:</div>
+                    <span> { room.roomName } </span>
+                </div>
+                <div className="card--detailPair">
+                    <div className="card--subTitle">Schedule day:</div>
+                    <span> { day.day } </span>
+                </div>
+                <div className="card--detailPair">
+                    <div className="card--subTitle">Lighting:</div>
+                    <span>{plant.lighting}</span>
+                </div>
+                <div className="card--detailPair">
+                    <div className="card--subTitle">Last watered:</div>
+                    <span>{plant.lastWatered ? (moment(plant.lastWatered).format("ddd, MMM Do")) : ("I'm new here!")}</span>
+                </div>
+                <div className="card--detailPair">
+                    <div className="card--subTitle">Notes:</div>
+                    <p>{plant.notes}</p>
+                </div>
+
+        </div>
             </div>
             
         </section>

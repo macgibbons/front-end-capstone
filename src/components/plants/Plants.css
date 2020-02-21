@@ -5,9 +5,29 @@
     
 }
 
+.plant--content {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
 
+
+.detail--header {
+    color:#1F3B20;
+    font-size: 2.3em;
+    font-weight: 300;
+}
+
+.detail--subHeader {
+    margin: .5em 0 3em 0;
+}
 .plant--card {
     flex-basis: 10%;
+}
+
+.details--content{
+    margin-left: 2em;
+    margin-top: none !important;
 }
 
 .plantList{
@@ -23,7 +43,7 @@
 
 .btns {
     display: flex;
-    margin-left: 15px;
+    margin-left: .3em;
 }
 
 .icon {
