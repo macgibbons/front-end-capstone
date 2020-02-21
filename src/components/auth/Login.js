@@ -42,7 +42,7 @@ const Login = props => {
         <>
         <main className="container--login">
             <h1 className="header login--page--header">fern</h1>
-            <div className="login--page--subheader">Soil, water, sun, repeat</div>
+            <div className="login--page--subheader">Soil, water, sun. Repeat</div>
             <section className="login">
                 <form className="form--login" onSubmit={handleLogin}>
                     <div className="header login--header">welcome</div>

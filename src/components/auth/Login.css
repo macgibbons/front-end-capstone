@@ -196,6 +196,7 @@ input[type="button"].button-primary:focus {
     height: 38px;
     background-color: #fff;
     border: none;
+    border-radius: none;
     border-bottom: 1px solid #828282;
     padding: none;
     box-shadow: none;
@@ -243,7 +244,12 @@ input[type="button"].button-primary:focus {
     margin-left: .5rem;
     font-weight: normal; }
   
+select {
+  /* border-radius: 50px; */
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
 
+}
   @media (max-width: 600px){
     .login--header {
       font-size: 2em;

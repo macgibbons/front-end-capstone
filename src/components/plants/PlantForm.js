@@ -16,6 +16,9 @@ export default props => {
     const currentUserRooms = rooms.filter(r => r.userId == currentUser)
     
     const editMode = props.match.params.hasOwnProperty("plantId")
+    if(currentUser !== null) {
+        document.body.classList.add("user--loggedIn")
+    }
 
     const handleControlledInputChange = (event) => {
         /*
@@ -123,12 +126,12 @@ export default props => {
 
     return (
         <form className="plant--form container">
-            <h2 className="plant--formTitle">{editMode ? "Update Plant" : "New Plant"}</h2>
+            <h2 className="plant--formTitle header detail--header">{editMode ? "Update Plant" : "New Plant"}</h2>
             <div className="wrapper">
                 <div className="plant-form-pair">
                     <fieldset>
                         <div className="plant-form-group">
-                            <label htmlFor="name">Plant Name* </label>
+                            {/* <label htmlFor="name">Plant Name* </label> */}
                             <input type="text" name="name" required autoFocus className="form-control-type1"
                                 proptype="varchar"
                                 placeholder="plant name.."
@@ -140,7 +143,7 @@ export default props => {
 
                     <fieldset>
                         <div className="plant-form-group">
-                            <label htmlFor="species">Plant Species* </label>
+                            {/* <label htmlFor="species">Plant Species* </label> */}
                             <input type="text" name="species" required className="form-control-type1"
                                 proptype="varchar"
                                 placeholder="species..."
@@ -156,7 +159,7 @@ export default props => {
 
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="roomId">room: </label>
+                        {/* <label htmlFor="roomId">room: </label> */}
                         <select name="roomId" className="form-control-type1"
                             proptype="int"
                             value={plant.roomId}
@@ -175,7 +178,7 @@ export default props => {
 
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="lighting">lighting* </label>
+                        {/* <label htmlFor="lighting">lighting* </label> */}
                         <select name="lighting" className="form-control-type1"
                             proptype="int"
                             value={plant.lighting}
@@ -197,7 +200,7 @@ export default props => {
 
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="waterDay">what day?* </label>
+                        {/* <label htmlFor="waterDay">what day?* </label> */}
                         <select name="waterDay" className="form-control-type1"
                             proptype="int"
                             defaultValue={plant.DayId}
@@ -215,7 +218,7 @@ export default props => {
 
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="waterFrequency">Frequency* </label>
+                        {/* <label htmlFor="waterFrequency">Frequency* </label> */}
                         <select name="waterFrequency" className="form-control-type1"
                             proptype="varchar"
                             value={plant.waterFrequency}
@@ -232,14 +235,19 @@ export default props => {
             </div>
 
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="waterAmount">how much water? </label>
+                <div className="plant-water-pair">
+
+                <div className="form-group water">
+                    {/* <label htmlFor="waterAmount">how much water? </label> */}
                     <input type="text" name="waterAmount" className="form-control-type1"
                         proptype="varchar"
+                        placeholder="How much water"
                         value={plant.waterAmount}
                         onChange={handleControlledInputChange}/>
-                        cups
+                        
                 </div>
+                <div className="cups">Cups</div>
+            </div>
             </fieldset>
 
             <fieldset>
