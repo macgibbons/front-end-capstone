@@ -63,4 +63,11 @@ Create a json file named database.json with the provided sample data and run a j
 ```
 
 # Usage
-
+- login or register as a new user 
+- navagate to the `add plant` view
+- fill in the form fields for the plant you are adding
+- add as many plants as you have 
+- navagate to the `My Plants` to view all of your plants
+- click the name of the plant to view more information and to update/delete the plant
+- navagate to the `dashboard` to view plants to water today
+- water your plants and mark them as watered :) 
