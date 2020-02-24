@@ -1,3 +1,12 @@
+# Fern
+
+Fern is a React application with full `CRUD` capability. It serves as a personal digital plant care card library. **Fern** allows a user to log their houseplants along with any care information that was provided with the plant on purchase. 
+
+#### Problem
+Many people love to fill their houses with a vast array of luscious and beautiful houseplants. However, with all that flora, it can be easy for one to lose track of which types of plants they own, how much water and light they need, and when the last time the plants have been watered. Quickly, all of their luscious green plants turn crunchy and brown. **Fern** aims to solves this problem by arming users with the tools to keep log and keep track of all of this information. 
+
+When a user logs in, they will be taken to a dashboard that shows them the current day and which plants are to be watered on this day. They can then mark them as watered, which will automatically update a `completed` boolean to true in the `JSON` database, and take them off of the list of plants to be watered. Said boolean will be reverted back to false when it is time for them to be watered again.  
+
 # Installation
 
 Install react packages:
@@ -51,3 +60,6 @@ Create a json file named database.json with the provided sample data and run a j
 "rooms": []
 } 
 ```
+
+# Usage
+
