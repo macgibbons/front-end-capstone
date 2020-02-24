@@ -41,8 +41,6 @@ return (
                     <div className="card--subTitle">Last watered:</div>
                     <span>{plant.lastWatered ? (moment(plant.lastWatered).format("ddd, MMM Do")) : ("I'm new here!")}</span>
                 </div>
-            </div>
-            
             <div className="checkbox2">
                 <input type="checkbox" name="species" required className="form-control" 
                 onClick={() => {
@@ -54,6 +52,8 @@ return (
                     patchPlant(updatePlantAsCompleted)}}/>
                 <label htmlFor="checkbox">mark as watered </label>
             </div>
+            </div>
+            
         </div>
         
         
