@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Fern
 
-## Available Scripts
+Fern is a React application with full `CRUD` capability. It serves as a personal digital plant care card library. **Fern** allows a user to log their houseplants along with any care information that was provided with the plant on purchase. 
 
-In the project directory, you can run:
+![Fern Desktop View](https://res.cloudinary.com/dizvtfdgm/image/upload/v1582560597/plants/FE-desktop_vc1iym.png)
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Problem
+Many people love to fill their houses with a vast array of luscious and beautiful houseplants. However, with all that flora, it can be easy for one to lose track of which types of plants they own, how much water and light they need, and when the last time the plants have been watered. Quickly, all of their luscious green plants turn crunchy and brown. **Fern** aims to solves this problem by arming users with the tools to keep log and keep track of all of this information. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# 
+When a user logs in, they will be taken to a dashboard that shows them the current day and which plants are to be watered on this day. They can then mark them as watered, which will automatically update a `completed` boolean to true in the `JSON` database, and take them off of the list of plants to be watered. Said boolean will be reverted back to false when it is time for them to be watered again.  
 
-### `npm test`
+# Installation
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install react packages:
 
-### `npm run build`
+```npx create-react-app 
+npm i --save react-router-dom
+npm instal moment --save
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+npm start from the root directory to run application
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Database sample
 
-### `npm run eject`
+Create a json file named database.json with the provided sample data and run a json server watching database.json on port 8088
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```{
+  "users": [],
+  "plants": [],
+  "days": [
+    {
+      "id": 1,
+      "day": "Monday"
+    },
+    {
+      "id": 2,
+      "day": "Tuesday"
+    },
+    {
+      "id": 3,
+      "day": "Wednesday"
+    },
+    {
+      "id": 4,
+      "day": "Thursday"
+    },
+    {
+      "id": 5,
+      "day": "Friday"
+    },
+    {
+      "id": 6,
+      "day": "Saturday"
+    },
+    {
+      "id": 0,
+      "day": "Sunday"
+    }
+  ],
+"rooms": []
+} 
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Usage
+- login or register as a new user 
+- navagate to the `add plant` view
+- fill in the form fields for the plant you are adding
+- add as many plants as you have 
+- navagate to the `My Plants` to view all of your plants
+- click the name of the plant to view more information and to update/delete the plant
+- navagate to the `dashboard` to view plants to water today
+- water your plants and mark them as watered :) 
